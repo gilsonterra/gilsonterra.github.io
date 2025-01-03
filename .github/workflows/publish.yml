@@ -33,7 +33,7 @@ jobs:
         run: npx next build
 
       - name: Check output directory 📂
-        run: ls -la ./out
+        run: ls -la .
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
