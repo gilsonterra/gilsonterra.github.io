@@ -30,7 +30,10 @@ jobs:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
-        run: npx next build
+        run: npm run build
+
+      - name: Export Next.js static files
+        run: npm run export
 
       - name: Check output directory 📂
         run: ls -la .
@@ -38,6 +41,7 @@ jobs:
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           path: ./out
 
   deploy:
