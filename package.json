@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "check-code": "prettier --check .",
+    "format": "prettier --write .",
+    "test": "jest --watch",
     "test-coverage": "jest --coverage --verbose"
   },
   "dependencies": {
@@ -20,7 +23,7 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
-    "@types/node": "^20",
+    "@types/node": "^20.17.11",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
