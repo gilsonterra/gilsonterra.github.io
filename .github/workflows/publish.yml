@@ -37,6 +37,9 @@ jobs:
         with:
           path: ./out
 
+      - name: Check output directory 📂
+        run: ls -la out
+
   deploy:
     environment:
       name: github-pages
