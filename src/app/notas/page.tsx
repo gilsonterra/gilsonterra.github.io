@@ -12,6 +12,12 @@ const NotesPage = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<string | null>(null);
 
+  const generateFileName = (path: string) =>
+    path?.substring(1).replaceAll(".md", "").replaceAll("/", " -> ");
+
+  const generateTitle = (path: string) =>
+    path.substring(path.lastIndexOf("/") + 1).replaceAll(".md", "");
+
   const getContent = async (path: string) => {
     setSelectedFile(path);
 
@@ -56,20 +62,23 @@ const NotesPage = () => {
     <div className="flex flex-col w-full">
       <DottedShadowText text="Notas" />
       <div className="grid grid-cols-[600px,1fr] gap-10 w-full">
-        <ul className="text-xs py-4">
+        <ul className="text-sm py-4">
           {files?.map((file) => (
-            <li key={file}>
+            <li key={file} className="py-1">
               <button
                 onClick={() => {
                   getContent(`/notas${file}`);
                 }}
               >
-                {file}
+                {generateFileName(file)}
               </button>
             </li>
           ))}
         </ul>
-        <MarkdownViewer title={selectedFile || ""} content={markdownContent} />
+        <MarkdownViewer
+          title={generateTitle(selectedFile || "")}
+          content={markdownContent}
+        />
       </div>
     </div>
   );
