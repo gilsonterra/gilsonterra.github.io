@@ -15,7 +15,7 @@ export default function handler(
 
   fs.readdir(publicDir, (err, files) => {
     if (err) {
-      res.status(500).json({ error: "Erro ao ler a pasta" } as any);
+      res.status(500).json({ files: [], error: "Erro ao ler a pasta" });
       return;
     }
     res.status(200).json({ files });
