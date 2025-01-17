@@ -1,5 +1,4 @@
 import BrokenNeonText from "./components/BrokenNeonText/BrokenNeonText";
-import DottedShadowText from "./components/DottedShadowText/DottedShadowText";
 
 const PageNotFound: React.FC = () => {
   return (

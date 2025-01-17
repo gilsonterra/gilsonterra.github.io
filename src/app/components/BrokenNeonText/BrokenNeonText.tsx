@@ -1,6 +1,6 @@
 "use client";
 
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
 const bgAnimation = keyframes`
   0% {
@@ -20,10 +20,9 @@ const bgAnimation = keyframes`
   }
 `;
 
-// Keyframes for Text Animation
 const textAnimation = (color: string) => keyframes`
   0% {
-    color: white;
+    color: ${color};
     text-shadow: -3px -3px 5px ${color}, 3px -3px 5px ${color}, 3px 3px 5px ${color}, -3px 3px 5px ${color};
   }
   3% {
@@ -31,7 +30,7 @@ const textAnimation = (color: string) => keyframes`
     text-shadow: none;
   }
   5% {
-    color: white;
+    color: ${color};
     text-shadow: -3px -3px 5px ${color}, 3px -3px 5px ${color}, 3px 3px 5px ${color}, -3px 3px 5px ${color};
   }
   15% {
@@ -44,7 +43,42 @@ const textAnimation = (color: string) => keyframes`
   }
 `;
 
-export const Neon = styled.div<{ color: string }>`
+const brokenLetterAnimation = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(10px) rotate(2deg);
+  }
+  100% {
+    transform: translateY(10px) rotate(10deg);
+    text-shadow: none;
+  }
+`;
+
+const BrokenLetter = styled.span`
+  display: inline-block;
+  margin: 0 0.1em;
+  animation: ${brokenLetterAnimation} 300ms ease-out 1;
+  animation-delay: 3s;
+  animation-fill-mode: forwards; // Mantem a posição final
+`;
+
+const BlinkLetter = styled.span<{ color: string; time: string }>`
+  color: white;
+  text-shadow: none;
+  text-shadow:
+    -3px -3px 5px ${(props) => props.color},
+    3px -3px 5px ${(props) => props.color},
+    3px 3px 5px ${(props) => props.color},
+    -3px 3px 5px ${(props) => props.color};
+  animation-name: ${(props) => textAnimation(props.color)};
+  animation-duration: ${(props) => props.time};
+  animation-iteration-count: infinite;
+  animation-delay: 3.5s;
+`;
+
+const Neon = styled.div<{ color: string }>`
   position: relative;
   display: inline-block;
   z-index: 1;
@@ -67,33 +101,22 @@ export const Neon = styled.div<{ color: string }>`
     animation: ${bgAnimation} 2s infinite;
     opacity: 0.4;
   }
-
-  span {
-    color: rgba(255, 255, 255, 0.4);
-    text-shadow: none;
-    animation-name: ${(props) => textAnimation(props.color)};
-    animation-iteration-count: infinite;
-  }
-
-  span:nth-child(1) {
-    animation-duration: 2s;
-  }
-
-  span:nth-child(2) {
-    animation-duration: 5s;
-  }
-
-  span:nth-child(3) {
-    animation-duration: 300ms;
-  }
 `;
 
 const BrokenNeonText: React.FC = () => {
   return (
     <Neon color="white" className="text-4xl font-thin tracking-wider ">
       Pág
-      <span>in</span>a n<span>ão</span> encon
-      <span className="inline-block translate-y-2">t</span>rada
+      <BlinkLetter color="white" time="1s">
+        in
+      </BlinkLetter>
+      a n
+      <BlinkLetter color="white" time="5s">
+        ão
+      </BlinkLetter>{" "}
+      encon
+      <BrokenLetter>t</BrokenLetter>
+      rada
     </Neon>
   );
 };
