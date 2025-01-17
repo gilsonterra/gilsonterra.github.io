@@ -105,7 +105,7 @@ const Neon = styled.div<{ color: string }>`
 
 const BrokenNeonText: React.FC = () => {
   return (
-    <Neon color="white" className="text-4xl font-thin tracking-wider ">
+    <Neon color="white" className="text-4xl font-thin tracking-wider">
       Pág
       <BlinkLetter color="white" time="1s">
         in
