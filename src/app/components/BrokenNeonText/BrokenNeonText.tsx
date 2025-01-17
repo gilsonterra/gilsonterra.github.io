@@ -1,6 +1,6 @@
 "use client";
 
-import styled, { keyframes, css } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const bgAnimation = keyframes`
   0% {
@@ -110,11 +110,11 @@ const BrokenNeonText: React.FC = () => {
       <BlinkLetter color="white" time="1s">
         in
       </BlinkLetter>
-      a n
+      a não{" "}
       <BlinkLetter color="white" time="5s">
-        ão
-      </BlinkLetter>{" "}
-      encon
+        enc
+      </BlinkLetter>
+      on
       <BrokenLetter>t</BrokenLetter>
       rada
     </Neon>
