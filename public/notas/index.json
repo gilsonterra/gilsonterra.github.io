@@ -1,1 +1,13 @@
-["file1.md", "file2.md", "file3.md"]
+[
+  "/Study Guide.md",
+  "/TI/Building Resilient Frontend Architecture.md",
+  "/TI/Dica para pensar nas telas de frontend.md",
+  "/TI/Dicas de Software House.md",
+  "/TI/Ideias TI com Negócio.md",
+  "/TI/Performance/Core Web Vitals.md",
+  "/TI/Performance/Otimizando Site.md",
+  "/TI/Performance with Vue.md",
+  "/TI/Study Guide.md",
+  "/TI/Tech Writer.md",
+  "/Tech Writer.md"
+]

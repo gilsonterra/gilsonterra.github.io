@@ -53,7 +53,7 @@ const NotesPage = () => {
     <div className="flex flex-col p-4 items-center scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300">
       Files
       <ul>
-        {files.map((file) => (
+        {files?.map((file) => (
           <li key={file}>
             <a
               href={`/notas/${file}`}
