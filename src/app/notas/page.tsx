@@ -46,8 +46,8 @@ const NotesPage = () => {
           throw new Error("Erro ao carregar a lista de arquivos");
         const fileList = await response.json();
         setFiles(fileList);
-      } catch (err: { message: string }) {
-        setError(err?.message || "Erro desconhecido");
+      } catch (err: Error | unknown) {
+        setError((err as Error)?.message || "Erro desconhecido");
       }
     };
 

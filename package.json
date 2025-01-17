@@ -2,17 +2,15 @@
   "name": "gilsonterra.github.io",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "npm run generate-list && next build",
+    "build": "next build",
     "start": "npx serve@latest out",
     "lint": "next lint",
     "check-code": "prettier --check .",
     "format": "prettier --write .",
     "test": "jest --watch",
-    "test-coverage": "jest --coverage --verbose",
-    "generate-list": "ts-node --loader scripts/generate-index-notas.ts"
+    "test-coverage": "jest --coverage --verbose"
   },
   "dependencies": {
     "@types/jest": "^29.5.14",
