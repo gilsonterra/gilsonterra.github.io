@@ -10,6 +10,27 @@ const NotesPage = () => {
   const [markdownContent, setMarkdownContent] = useState("");
   const [files, setFiles] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = useState<string | null>(null);
+
+  const getContent = async (path: string) => {
+    setSelectedFile(path);
+
+    fetch(path)
+      .then((response) => response.text())
+      .then((text) => {
+        remark()
+          .use(html)
+          .process(text, (err, file) => {
+            if (err) {
+              console.error("Erro ao processar o Markdown:", err);
+            } else {
+              // Definir o HTML convertido
+              setMarkdownContent(String(file));
+            }
+          });
+      })
+      .catch((error) => console.error("Erro ao carregar o arquivo:", error));
+  };
 
   useEffect(() => {
     const fetchFiles = async () => {
@@ -27,46 +48,29 @@ const NotesPage = () => {
     fetchFiles();
   }, []);
 
-  useEffect(() => {
-    fetch("/notas/TI/Tech Writer.md")
-      .then((response) => response.text())
-      .then((text) => {
-        remark()
-          .use(html)
-          .process(text, (err, file) => {
-            if (err) {
-              console.error("Erro ao processar o Markdown:", err);
-            } else {
-              // Definir o HTML convertido
-              setMarkdownContent(String(file));
-            }
-          });
-      })
-      .catch((error) => console.error("Erro ao carregar o arquivo:", error));
-  }, []);
-
   if (error) {
     return <p>Erro: {error}</p>;
   }
 
   return (
-    <div className="flex flex-col p-4 items-center scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-300">
-      Files
-      <ul>
-        {files?.map((file) => (
-          <li key={file}>
-            <a
-              href={`/notas/${file}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {file}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className="flex flex-col w-full">
       <DottedShadowText text="Notas" />
-      <MarkdownViewer title="Tech Writer" content={markdownContent} />
+      <div className="grid grid-cols-[600px,1fr] gap-10 w-full">
+        <ul className="text-xs py-4">
+          {files?.map((file) => (
+            <li key={file}>
+              <button
+                onClick={() => {
+                  getContent(`/notas${file}`);
+                }}
+              >
+                {file}
+              </button>
+            </li>
+          ))}
+        </ul>
+        <MarkdownViewer title={selectedFile || ""} content={markdownContent} />
+      </div>
     </div>
   );
 };
