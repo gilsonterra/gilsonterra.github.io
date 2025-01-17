@@ -2,6 +2,7 @@
 
 import DottedShadowText from "@/app/components/DottedShadowText/DottedShadowText";
 import { useState } from "react";
+
 const PlaygroundTextEffects = () => {
   const [text, setText] = useState("Gilson");
 

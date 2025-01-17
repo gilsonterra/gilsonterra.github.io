@@ -1,14 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+import { Baloo_Paaji_2, Patrick_Hand, Righteous } from "next/font/google";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+
+const patrickHand = Patrick_Hand({
+  weight: "400",
+  variable: "--patrick-hand",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const balooPaaji2 = Baloo_Paaji_2({
+  weight: "400",
+  variable: "--ballo-paaji-2",
+  subsets: ["latin"],
+});
+
+const righteous = Righteous({
+  weight: "400",
+  variable: "--righteous",
   subsets: ["latin"],
 });
 
@@ -23,11 +34,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${patrickHand.variable} ${balooPaaji2.variable} ${righteous.variable} antialiased`}
       >
-        {children}
+        <div className="grid grid-rows-[auto,1fr,auto] h-screen w-full gap-4 px-8 pt-8 ">
+          <Header />
+          <main className="flex flex-col items-center gap-8 p-8">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
