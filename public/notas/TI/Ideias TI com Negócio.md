@@ -1,9 +1,9 @@
--   Checklist de testes de Tela Manuais
--   Dicas de um bom código (Clean Code e Refatoring)
--   Plataforma de intranet com processos e base de conhecimento (pipedrive)
--   Cypress para automação e teste
--   Phyton para automação
--   Organizar templates de email
--   Organizar templates de horas trabalhadas
--   Organizar templates de valor por projeto
--   Organizar templates de orçamento
+- Checklist de testes de Tela Manuais
+- Dicas de um bom código (Clean Code e Refatoring)
+- Plataforma de intranet com processos e base de conhecimento (pipedrive)
+- Cypress para automação e teste
+- Phyton para automação
+- Organizar templates de email
+- Organizar templates de horas trabalhadas
+- Organizar templates de valor por projeto
+- Organizar templates de orçamento
