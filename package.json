@@ -13,8 +13,12 @@
     "test-coverage": "jest --coverage --verbose"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.1.0",
+    "@next/mdx": "^15.1.6",
     "@types/jest": "^29.5.14",
+    "gray-matter": "^4.0.3",
     "next": "15.1.5",
+    "next-mdx-remote": "^5.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "remark": "^15.0.1",
