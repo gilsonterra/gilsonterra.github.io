@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 
 const NotePage: React.FC<PostProps> = async ({ params }) => {
   const slug = (await params).slug;
-  const { default: Note } = await import(`@content/${slug}.mdx`);
+  const { default: Note } = await import(`@/app/content/${slug}.mdx`);
 
   return (
     <div>
