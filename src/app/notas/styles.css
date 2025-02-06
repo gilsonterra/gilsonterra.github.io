@@ -11,12 +11,3 @@
   color: var(--background);
   background: var(--foreground);
 }
-
-.notes .note-item .topic {
-  font-size: var(--text-xs);
-  background-color: purple;
-  color: var(--foreground);
-  padding: 5px;
-  line-height: 1;
-  border-radius: 5px;
-}

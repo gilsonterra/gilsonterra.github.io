@@ -1,16 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-
-type Frontmatter = {
-  title: string;
-  description: string;
-  updatedAt: string;
-  startedAt: string;
-  type: string;
-  cover: string;
-  topics: string[];
-};
+import { Frontmatter } from "../types/content";
 
 export const getFileName = (filename: string) =>
   filename.replace(/\.mdx$/, "").replace(/\.md$/, "");

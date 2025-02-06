@@ -6,6 +6,10 @@ import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import DottedShadowText from "@/app/components/DottedShadowText/DottedShadowText";
 import { notFound } from "next/navigation";
+import TopicTag from "@/app/components/TopicTag/TopicTag";
+import { parseDatePtBr } from "@/app/utils/date";
+import { Frontmatter } from "@/app/types/content";
+import { Suspense } from "react";
 
 type PostProps = {
   params: Promise<{ slug: string }>;
@@ -19,7 +23,23 @@ export async function generateStaticParams() {
 
 const NotePage: React.FC<PostProps> = async ({ params }) => {
   const slug = (await params).slug;
-  const { default: Note } = await import(`@/app/content/${slug}.mdx`);
+  const components = {
+    DottedShadowText,
+    a: (props: any) => (
+      <a
+        style={{
+          fontWeight: "500",
+          fontStyle: "italic",
+          textDecorationStyle: "dotted",
+          textDecoration: "underline",
+          textUnderlineOffset: "0.3rem",
+        }}
+        {...props}
+      />
+    ),
+  };
+
+  //const { default: Note } = await import(`@/app/content/${slug}.mdx`);
 
   const filePath = path.join(process.cwd(), "/src/app/content", `${slug}.mdx`);
 
@@ -29,25 +49,35 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
 
   const fileContent = fs.readFileSync(filePath, "utf8");
   const { data: frontmatter, content } = matter(fileContent);
-
-  const components = {
-    DottedShadowText,
-  };
+  const metadata = frontmatter as Frontmatter;
 
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
       <BackButton text="voltar" />
-      {JSON.stringify(frontmatter, null, 2)}
-      <br />
-      <br />
-      <br />
-      <br />
-      {<MDXRemote source={content} components={components} />}
-      <br />
-      <br />
-      <br />
-      <br />
-      <Note />
+
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+        }}
+      >
+        <h1 style={{ fontSize: "var(--text-xl)", fontWeight: "bold" }}>
+          {metadata.title}
+        </h1>
+        <span style={{ fontSize: "var(--text-sm)", opacity: 0.5 }}>
+          {parseDatePtBr(metadata?.updatedAt)}
+        </span>
+      </div>
+      <Suspense fallback={<>Carregando...</>}>
+        <MDXRemote source={content} components={components} />
+      </Suspense>
+
+      <div style={{ display: "flex", gap: "5px" }}>
+        {metadata.topics?.map((topic: string) => (
+          <TopicTag key={topic} text={topic} />
+        ))}
+      </div>
     </div>
   );
 };

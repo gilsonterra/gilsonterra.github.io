@@ -3,6 +3,7 @@ import DottedShadowText from "../components/DottedShadowText/DottedShadowText";
 import { getFileName, getFilesWithMetadata } from "../utils/content";
 import { parseDatePtBr } from "../utils/date";
 import "./styles.css";
+import TopicTag from "../components/TopicTag/TopicTag";
 
 const NotesPages: React.FC = async () => {
   const filenames = getFilesWithMetadata();
@@ -55,9 +56,7 @@ const NotesPages: React.FC = async () => {
                   style={{ display: "flex", alignItems: "center", gap: "5px" }}
                 >
                   {frontmatter?.topics?.map((topic) => (
-                    <span key={topic} className="topic">
-                      {topic}
-                    </span>
+                    <TopicTag key={topic} text={topic} />
                   ))}
                 </div>
               </div>
