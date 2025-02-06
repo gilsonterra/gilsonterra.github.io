@@ -25,7 +25,7 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
   const slug = (await params).slug;
   const components = {
     DottedShadowText,
-    a: (props: any) => (
+    a: (props: Record<string, unknown>) => (
       <a
         style={{
           fontWeight: "500",
