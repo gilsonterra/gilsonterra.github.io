@@ -3,7 +3,7 @@
 import { MenuItems } from "@/app/components/Menu/type";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./style.css";
 
 const MenuMobile: React.FC<MenuItems> = ({ items }) => {
