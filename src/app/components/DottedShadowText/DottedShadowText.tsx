@@ -57,7 +57,7 @@ const DottedShadowText: React.FC<DottedShadowTextProps> = ({
   text,
   color = "white",
   shadow = "#22272f",
-  size = "5rem",
+  size = "2rem",
   className,
 }) => {
   const words = text.split(" ");
@@ -67,7 +67,7 @@ const DottedShadowText: React.FC<DottedShadowTextProps> = ({
       {words.map((word, index) => (
         <Text
           key={index}
-          className={`dotted-shadow-text font-righteous font-bold `}
+          style={{ fontWeight: "bold" }}
           data-shadow={word}
           size={size}
           color={color}

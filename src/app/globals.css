@@ -1,20 +1,99 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --background: #2a2c39;
-  --foreground: #171717;
+  --background: #1a1a1a;
+  --foreground: #e5e5e5;
+  --text-secondary: #ffffffbf;
+  --gap: 5px;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --global-padding: 30px;
+  --breakpoint-screen-sm: 640px;
+  --breakpoint-screen-md: 768px;
+  --breakpoint-screen-lg: 1024px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #2a2c39;
-    --foreground: #ededed;
+    --background: #1a1a1a;
+    --foreground: #e5e5e5;
   }
 }
 
+/* Remove estilos padrões do navegador */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+}
+
+/* Remove decoração de listas */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove decoração de links */
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+/* Evita que imagens saiam do container */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Botões sem estilos padrões */
+button {
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Melhora a acessibilidade do foco */
+:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+strong {
+  font-weight: bold;
+}
+
+i {
+  font-style: italic;
+}
+
+/* Fonte base */
 body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  font-family: system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
   color: var(--foreground);
   background: var(--background);
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.layout {
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-rows: 150px 1fr 60px;
+  max-width: var(--breakpoint-screen-md);
+  height: 100vh;
+  padding: 0 var(--global-padding);
 }

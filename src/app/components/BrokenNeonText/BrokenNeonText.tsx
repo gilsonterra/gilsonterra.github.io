@@ -64,7 +64,7 @@ const BrokenLetter = styled.span`
   animation-fill-mode: forwards; // Mantem a posição final
 `;
 
-const BlinkLetter = styled.span<{ color: string; time: string }>`
+const BlinkLetter = styled.span<{ color: string; $time: string }>`
   color: white;
   text-shadow: none;
   text-shadow:
@@ -73,7 +73,7 @@ const BlinkLetter = styled.span<{ color: string; time: string }>`
     3px 3px 5px ${(props) => props.color},
     -3px 3px 5px ${(props) => props.color};
   animation-name: ${(props) => textAnimation(props.color)};
-  animation-duration: ${(props) => props.time};
+  animation-duration: ${(props) => props.$time};
   animation-iteration-count: infinite;
   animation-delay: 3.5s;
 `;
@@ -97,6 +97,7 @@ const Neon = styled.div<{ color: string }>`
     top: 0;
     right: 0;
     bottom: 0;
+    height: 0;
     transform: scale(2, 8);
     animation: ${bgAnimation} 2s infinite;
     opacity: 0.4;
@@ -105,13 +106,16 @@ const Neon = styled.div<{ color: string }>`
 
 const BrokenNeonText: React.FC = () => {
   return (
-    <Neon color="white" className="text-4xl font-thin tracking-wider">
+    <Neon
+      color="white"
+      style={{ fontWeight: "200", letterSpacing: "0.05em", fontSize: "2em" }}
+    >
       Pág
-      <BlinkLetter color="white" time="1s">
+      <BlinkLetter color="white" $time="1s">
         in
       </BlinkLetter>
       a não{" "}
-      <BlinkLetter color="white" time="5s">
+      <BlinkLetter color="white" $time="5s">
         enc
       </BlinkLetter>
       on

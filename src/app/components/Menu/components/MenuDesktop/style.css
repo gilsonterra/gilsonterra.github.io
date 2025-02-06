@@ -1,0 +1,40 @@
+.menu-desktop ul {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+}
+
+.menu-desktop li {
+  height: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.menu-desktop li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all;
+  transition-duration: 0.3s;
+  background: #e5e5e5;
+}
+
+.menu-desktop li:hover::after {
+  width: 100%;
+}
+
+.menu-desktop li a {
+  display: block;
+  transition: transform 300ms ease-in-out;
+  box-sizing: content-box;
+}
+
+.menu-desktop li a:hover {
+  transform: translateY(-4px);
+}

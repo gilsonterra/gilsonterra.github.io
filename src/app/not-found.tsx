@@ -2,7 +2,15 @@ import BrokenNeonText from "./components/BrokenNeonText/BrokenNeonText";
 
 const PageNotFound: React.FC = () => {
   return (
-    <div className="h-full flex items-center justify-center ">
+    <div
+      style={{
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "50px",
+      }}
+    >
       <BrokenNeonText />
     </div>
   );

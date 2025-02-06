@@ -1,0 +1,25 @@
+@media (min-width: 769px) {
+  .menu-mobile {
+    display: none;
+  }
+  .menu-desktop {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-mobile {
+    display: block;
+  }
+
+  .menu-desktop {
+    display: none;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+}

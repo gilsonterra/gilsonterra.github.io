@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "label": "Notas",
+      "href": "/notas"
+    },
+    {
+      "label": "Playground",
+      "href": "/playground"
+    },
+    {
+      "label": "Sobre",
+      "href": "/sobre"
+    }
+  ]
+}
