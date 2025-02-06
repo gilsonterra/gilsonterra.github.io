@@ -35,9 +35,18 @@ export const getFilesWithMetadata = () => {
 };
 
 export const getSlugs = () => {
-  return getFiles().map((filename) => ({
-    slug: getFileName(filename),
-  }));
+  return getFiles().map((filename) => {
+    const filePath = path.join(getContentDirectory(), filename);
+    const fileContent = fs.readFileSync(filePath, "utf8");
+
+    const { data } = matter(fileContent);
+
+    return {
+      slug: getFileName(filename),
+      filename,
+      frontmatter: data as Frontmatter,
+    };
+  });
 };
 
 export async function getMdxContent(slug: string) {

@@ -4,7 +4,6 @@ const PageNotFound: React.FC = () => {
   return (
     <div
       style={{
-        height: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
