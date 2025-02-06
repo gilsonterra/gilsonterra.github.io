@@ -3,6 +3,7 @@
   --foreground: #e5e5e5;
   --text-secondary: #ffffffbf;
   --gap: 5px;
+  --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-md: 1rem;
   --text-lg: 1.25rem;
@@ -20,7 +21,6 @@
   }
 }
 
-/* Remove estilos padrões do navegador */
 *,
 *::before,
 *::after {
@@ -31,27 +31,23 @@
   font: inherit;
 }
 
-/* Remove decoração de listas */
 ul,
 ol {
   list-style: none;
 }
 
-/* Remove decoração de links */
 a {
   text-decoration: none;
   color: inherit;
   outline: none;
 }
 
-/* Evita que imagens saiam do container */
 img,
 video {
   max-width: 100%;
   height: auto;
 }
 
-/* Botões sem estilos padrões */
 button {
   all: unset;
   display: inline-block;
@@ -59,7 +55,6 @@ button {
   text-align: center;
 }
 
-/* Melhora a acessibilidade do foco */
 :focus {
   outline: 2px solid #000;
   outline-offset: 2px;
@@ -73,17 +68,13 @@ i {
   font-style: italic;
 }
 
-/* Fonte base */
 body {
-  /* 3. Add accessible line-height */
   line-height: 1.5;
-  /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
   font-family: system-ui, sans-serif;
   text-rendering: optimizeLegibility;
   color: var(--foreground);
   background: var(--background);
-  overflow: hidden;
   margin: 0;
   padding: 0;
 }

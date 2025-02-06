@@ -1,3 +1,4 @@
+import BackButton from "@/app/components/BackButton/BackButton";
 import { getSlugs } from "@/app/utils/content";
 
 type PostProps = {
@@ -16,6 +17,7 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
 
   return (
     <div>
+      <BackButton text="voltar" />
       <Note />
     </div>
   );

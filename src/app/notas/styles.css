@@ -1,0 +1,22 @@
+.notes .note-item {
+  display: block;
+  min-height: 50px;
+  height: 100%;
+  min-width: 100px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.notes .note-item:hover {
+  color: var(--background);
+  background: var(--foreground);
+}
+
+.notes .note-item .topic {
+  font-size: var(--text-xs);
+  background-color: purple;
+  color: var(--foreground);
+  padding: 5px;
+  line-height: 1;
+  border-radius: 5px;
+}

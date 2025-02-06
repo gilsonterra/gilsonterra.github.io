@@ -1,12 +1,15 @@
+"use client";
+
 import { MenuItems } from "@/app/components/Menu/type";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 
 const MenuMobile: React.FC<MenuItems> = ({ items }) => {
   const [open, setOpen] = useState(false);
   const title = open ? "Fechar" : "Menu";
+  const bodyHeight = document.documentElement.scrollHeight;
 
   return (
     <div className="menu-mobile">
@@ -24,7 +27,7 @@ const MenuMobile: React.FC<MenuItems> = ({ items }) => {
       </button>
 
       {open && (
-        <ul>
+        <ul style={{ height: open ? bodyHeight : "auto" }}>
           {items?.map((item) => (
             <li key={`menu-${item.href}`}>
               <Link

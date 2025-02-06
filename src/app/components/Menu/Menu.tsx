@@ -3,7 +3,6 @@
 import React from "react";
 import MenuDesktop from "./components/MenuDesktop/MenuDesktop";
 import MenuMobile from "./components/MenuMobile/MenuMobile";
-
 import DATA from "./data.json";
 import "./style.css";
 
