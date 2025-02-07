@@ -25,21 +25,6 @@ export const getFilesWithMetadata = () => {
   });
 };
 
-export const getSlugs = () => {
-  return getFiles().map((filename) => {
-    const filePath = path.join(getContentDirectory(), filename);
-    const fileContent = fs.readFileSync(filePath, "utf8");
-
-    const { data } = matter(fileContent);
-
-    return {
-      slug: getFileName(filename),
-      filename,
-      frontmatter: data as Frontmatter,
-    };
-  });
-};
-
 export async function getMdxContent(slug: string) {
   const filePath = path.join(process.cwd(), "app/content", `${slug}.mdx`);
   const fileContent = fs.readFileSync(filePath, "utf8");

@@ -8,7 +8,7 @@ const NotesPages: React.FC = async () => {
   return (
     <div className="notes">
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <DottedShadowText text="Notas" size="4rem" />
+        <DottedShadowText text="Notas" size="3rem" />
       </div>
       <ul
         style={{
