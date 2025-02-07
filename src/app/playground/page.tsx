@@ -22,7 +22,7 @@ const PlaygroundPage = () => {
         </li>
         <li>
           <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-            <span>Texto "not found"</span>
+            <span>Texto &quot;not found&quot;</span>
             <BrokenNeonText />
           </div>
         </li>
