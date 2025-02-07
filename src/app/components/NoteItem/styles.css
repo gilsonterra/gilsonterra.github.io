@@ -1,4 +1,4 @@
-.notes .note-item {
+.note-item {
   display: block;
   min-height: 50px;
   height: 100%;
@@ -7,7 +7,7 @@
   border-radius: 5px;
 }
 
-.notes .note-item:hover {
+.note-item:hover {
   color: var(--background);
   background: var(--foreground);
 }
