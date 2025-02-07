@@ -19,6 +19,7 @@ export const getFilesWithMetadata = () => {
     const { data } = matter(fileContent);
 
     return {
+      slug: getFileName(filename),
       filename,
       frontmatter: data as Frontmatter,
     };

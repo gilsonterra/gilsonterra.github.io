@@ -1,5 +1,5 @@
 import BackButton from "@/app/components/BackButton/BackButton";
-import { getSlugs } from "@/app/utils/content";
+import { getFilesWithMetadata } from "@/app/utils/content";
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
@@ -18,7 +18,7 @@ type PostProps = {
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  return getSlugs();
+  return getFilesWithMetadata();
 }
 
 const NotePage: React.FC<PostProps> = async ({ params }) => {
