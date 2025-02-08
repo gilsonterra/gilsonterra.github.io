@@ -1,8 +1,8 @@
-import NoteItem from "./components/NoteItem/NoteItem";
+import Notes from "./components/Notes/Notes";
 import { getFilesWithMetadata } from "./utils/content";
 
 export default function Home() {
-  const filenames = getFilesWithMetadata();
+  const filenames = getFilesWithMetadata().slice(0, 4);
 
   return (
     <div
@@ -42,19 +42,7 @@ export default function Home() {
         >
           Últimos posts
         </h2>
-        <ul
-          style={{
-            display: "grid",
-            gap: "20px",
-            gridTemplateColumns: "repeat(2, 1fr)",
-          }}
-        >
-          {filenames.map(({ filename, frontmatter }) => (
-            <li key={filename}>
-              <NoteItem {...frontmatter} filename={filename} />
-            </li>
-          ))}
-        </ul>
+        <Notes notes={filenames} />
       </div>
     </div>
   );

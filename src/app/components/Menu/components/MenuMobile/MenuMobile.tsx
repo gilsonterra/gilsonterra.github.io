@@ -10,9 +10,11 @@ const MenuMobile: React.FC<MenuItems> = ({ items }) => {
   const [open, setOpen] = useState(false);
   const title = open ? "Fechar" : "Menu";
   const [bodyHeight, setBodyHeight] = useState<number>(0);
+  const [bodyWidth, setBodyWidth] = useState<number>(0);
 
   useEffect(() => {
     setBodyHeight(document.documentElement.scrollHeight);
+    setBodyWidth(document.documentElement.scrollWidth);
   }, []);
 
   return (
@@ -31,7 +33,12 @@ const MenuMobile: React.FC<MenuItems> = ({ items }) => {
       </button>
 
       {open && (
-        <ul style={{ height: open ? bodyHeight : "auto" }}>
+        <ul
+          style={{
+            height: open ? bodyHeight : "auto",
+            width: open ? bodyWidth : "auto",
+          }}
+        >
           {items?.map((item) => (
             <li key={`menu-${item.href}`}>
               <Link

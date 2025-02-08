@@ -1,5 +1,5 @@
 import DottedShadowText from "../components/DottedShadowText/DottedShadowText";
-import NoteItem from "../components/NoteItem/NoteItem";
+import Notes from "../components/Notes/Notes";
 import { getFilesWithMetadata } from "../utils/content";
 
 const NotesPages: React.FC = async () => {
@@ -10,19 +10,7 @@ const NotesPages: React.FC = async () => {
       <div style={{ display: "flex", justifyContent: "center" }}>
         <DottedShadowText text="Notas" size="3rem" />
       </div>
-      <ul
-        style={{
-          display: "grid",
-          gap: "10px",
-          gridTemplateColumns: "1fr",
-        }}
-      >
-        {filenames.map(({ filename, frontmatter }) => (
-          <li key={filename}>
-            <NoteItem {...frontmatter} filename={filename} />
-          </li>
-        ))}
-      </ul>
+      <Notes notes={filenames} />
     </div>
   );
 };

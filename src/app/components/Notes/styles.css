@@ -1,0 +1,16 @@
+@media (min-width: 768px) {
+  .notes-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 769px) {
+  .notes-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.notes-container {
+  display: grid;
+  gap: 10px;
+}
