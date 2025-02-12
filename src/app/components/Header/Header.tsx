@@ -1,5 +1,6 @@
 import Menu from "../Menu/Menu";
 import Title from "../Title/Title";
+import ThemeToggle from "../ToggleTheme/ToggleTheme";
 
 const Header: React.FC = () => {
   return (
@@ -9,7 +10,17 @@ const Header: React.FC = () => {
         padding: "60px 0",
       }}
     >
-      <Title />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          gap: "5px",
+        }}
+      >
+        <Title />
+        <ThemeToggle />
+      </div>
+
       <Menu />
     </header>
   );

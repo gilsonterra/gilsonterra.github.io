@@ -1,7 +1,4 @@
 :root {
-  --background: #1a1a1a;
-  --foreground: #e5e5e5;
-  --text-secondary: #ffffffbf;
   --gap: 5px;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -14,12 +11,26 @@
   --breakpoint-screen-lg: 1024px;
 }
 
+[data-theme="light"] {
+  --background: #e5e5e5;
+  --foreground: #1a1a1a;
+  --text-secondary: #1a1a1abf;
+}
+
+[data-theme="dark"] {
+  --background: #1a1a1a;
+  --foreground: #e5e5e5;
+  --text-secondary: #ffffffbf;
+}
+
+/*
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1a1a1a;
     --foreground: #e5e5e5;
   }
 }
+  */
 
 *,
 *::before,

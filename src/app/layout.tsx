@@ -5,6 +5,9 @@ import "./globals.css";
 //import { Baloo_Paaji_2, Patrick_Hand, Righteous } from "next/font/google";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import ThemeProvider from "./providers/themeProvider";
+import { useTheme } from "./hooks/useTheme";
+import Body from "./components/Body/Body";
 
 /*
 const patrickHand = Patrick_Hand({
@@ -38,13 +41,15 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning>
-      <body>
-        <div className="layout">
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </div>
-      </body>
+      <ThemeProvider>
+        <Body>
+          <div className="layout">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </Body>
+      </ThemeProvider>
     </html>
   );
 }

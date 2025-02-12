@@ -55,7 +55,7 @@ type DottedShadowTextProps = {
 
 const DottedShadowText: React.FC<DottedShadowTextProps> = ({
   text,
-  color = "white",
+  color = "var(--foreground)",
   shadow = "#22272f",
   size = "2rem",
   className,

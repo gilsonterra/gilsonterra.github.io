@@ -8,7 +8,7 @@ const TopicTag: React.FC<TopicTagProps> = ({ text }) => {
       style={{
         fontSize: "var(--text-xs)",
         backgroundColor: "purple",
-        color: "var(--foreground)",
+        color: "white",
         padding: "5px",
         lineHeight: "1",
         borderRadius: "5px",
