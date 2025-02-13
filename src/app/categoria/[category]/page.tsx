@@ -1,5 +1,4 @@
 import BackButton from "@/app/components/BackButton/BackButton";
-import DottedShadowText from "@/app/components/DottedShadowText/DottedShadowText";
 import Notes from "@/app/components/Notes/Notes";
 import { getCategories, getFilesWithMetadata } from "@/app/utils/content";
 
