@@ -99,3 +99,13 @@ body {
   height: 100vh;
   padding: 0 var(--global-padding);
 }
+
+h1 {
+  font-size: var(--text-xl);
+  font-weight: bold;
+}
+
+h2 {
+  font-size: var(--text-lg);
+  font-weight: bold;
+}

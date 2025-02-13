@@ -43,8 +43,9 @@ export default function About() {
               padding: "10px",
               minWidth: "300px",
               minHeight: "320px",
-              background: "var(--foreground)",
-              boxShadow: "1px 3px 3px 0 var(--foreground)",
+              background: "white",
+              boxShadow: "1px 3px 3px 0 #1a1a1a",
+              borderRadius: "3px",
             }}
           >
             <Image
@@ -56,12 +57,12 @@ export default function About() {
             />
             <span
               style={{
-                color: "var(--background)",
+                color: "#1a1a1a",
                 opacity: "0.3",
                 fontSize: "var(--text-xl)",
                 fontStyle: "italic",
                 height: "50px",
-                fontFamily: "fantasy",
+                fontFamily: "cursive",
               }}
             >
               Jardim v1.0.9

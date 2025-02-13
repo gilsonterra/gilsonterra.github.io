@@ -12,11 +12,15 @@ const shadAnimation = keyframes`
 
 const Container = styled.div`
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  background: "red";
+  column-gap: 12px;
+  row-gap: 3px;
 `;
 
 const Text = styled.span<{ shadow?: string; color?: string; size?: string }>`
   display: inline-block;
+  line-height: 40px;
   text-shadow: 0.03em 0.03em 0
     ${(props) => props.shadow || "hsl(277, 47%, 31%)"};
   position: relative;

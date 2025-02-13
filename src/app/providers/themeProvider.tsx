@@ -24,7 +24,8 @@ export function useTheme() {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const defaultTheme = (localStorage.getItem("theme") || "dark") as Theme;
+  const [theme, setTheme] = useState<Theme>(defaultTheme);
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";

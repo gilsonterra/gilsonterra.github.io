@@ -19,6 +19,7 @@ export default function ThemeToggle() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        outline: "none",
       }}
     >
       {theme === "light" ? (

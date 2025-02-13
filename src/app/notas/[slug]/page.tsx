@@ -25,6 +25,23 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
   const slug = (await params).slug;
   const components = {
     DottedShadowText,
+    ul: (props: Record<string, unknown>) => (
+      <ul
+        style={{
+          listStyle: "auto",
+        }}
+        {...props}
+      />
+    ),
+    ol: (props: Record<string, unknown>) => (
+      <ol
+        style={{
+          listStyle: "auto",
+        }}
+        {...props}
+      />
+    ),
+    li: (props: Record<string, unknown>) => <li style={{}} {...props} />,
     a: (props: Record<string, unknown>) => (
       <a
         style={{
@@ -62,9 +79,7 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
           justifyContent: "space-between",
         }}
       >
-        <h1 style={{ fontSize: "var(--text-xl)", fontWeight: "bold" }}>
-          {metadata.title}
-        </h1>
+        <DottedShadowText text={metadata.title} />
         <span style={{ fontSize: "var(--text-sm)", opacity: 0.5 }}>
           {parseDatePtBr(metadata?.updatedAt)}
         </span>
