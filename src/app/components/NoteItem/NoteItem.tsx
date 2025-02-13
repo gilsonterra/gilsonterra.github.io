@@ -13,15 +13,8 @@ const NoteItem: React.FC<Frontmatter & { filename: string }> = ({
   filename,
 }) => {
   return (
-    <Link href={`/notas/${getFileName(filename)}`} className="note-item">
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "2px",
-          height: "100%",
-        }}
-      >
+    <div className="note-container">
+      <Link href={`/notas/${getFileName(filename)}`} className="note-item">
         <div
           style={{
             display: "flex",
@@ -38,11 +31,20 @@ const NoteItem: React.FC<Frontmatter & { filename: string }> = ({
           </span>
         </div>
         <span style={{ fontSize: "var(--text-sm)" }}>{description}</span>
-        <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-          {topics?.map((topic) => <TopicTag key={topic} text={topic} />)}
-        </div>
+      </Link>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "5px",
+          marginTop: "5px",
+        }}
+      >
+        {topics?.map((topic) => (
+          <TopicTag key={topic} text={topic} href={`/categoria/${topic}`} />
+        ))}
       </div>
-    </Link>
+    </div>
   );
 };
 

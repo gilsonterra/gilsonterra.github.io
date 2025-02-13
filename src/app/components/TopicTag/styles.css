@@ -1,0 +1,14 @@
+.topic-tag {
+  font-size: var(--text-xs);
+  background-color: #800080;
+  color: white;
+  padding: 5px;
+  line-height: 1;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.topic-tag:hover {
+  background-color: #9b319b;
+}
