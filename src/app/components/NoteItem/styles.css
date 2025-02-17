@@ -17,5 +17,9 @@
   background: var(--foreground);
 }
 
+[data-theme="light"] .note-container:hover {
+  background: var(--text-secondary);
+}
+
 .note-item {
 }

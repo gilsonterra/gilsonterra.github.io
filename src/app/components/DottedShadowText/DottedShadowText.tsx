@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "@/app/providers/themeProvider";
 import styled, { keyframes } from "styled-components";
 
 const shadAnimation = keyframes` 
@@ -64,6 +65,7 @@ const DottedShadowText: React.FC<DottedShadowTextProps> = ({
   size = "2rem",
   className,
 }) => {
+  const { theme } = useTheme();
   const words = text.split(" ");
 
   return (
@@ -74,8 +76,8 @@ const DottedShadowText: React.FC<DottedShadowTextProps> = ({
           style={{ fontWeight: "bold" }}
           data-shadow={word}
           size={size}
-          color={color}
-          shadow={shadow}
+          color={theme === "light" ? "purple" : color}
+          shadow={theme === "light" ? "hsl(277, 47%, 31%)" : shadow}
         >
           {word}
         </Text>
