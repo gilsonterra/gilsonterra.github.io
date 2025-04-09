@@ -11,7 +11,7 @@ export default function Home() {
         flexDirection: "column",
         gap: "60px",
         fontSize: "var(--text-lg)",
-        color: "var(--text-secondary)",
+        color: "var(--foreground)",
       }}
     >
       <p>

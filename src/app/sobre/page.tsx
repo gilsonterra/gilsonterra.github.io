@@ -9,7 +9,7 @@ export default function About() {
         flexDirection: "column",
         gap: "10px",
         fontSize: "var(--text-md)",
-        color: "var(--text-secondary)",
+        color: "var(--foreground)",
       }}
     >
       <p>

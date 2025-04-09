@@ -1,6 +1,6 @@
 .topic-tag {
   font-size: var(--text-xs);
-  background-color: #800080;
+  background-color: #eb6f92;
   color: white;
   padding: 5px;
   line-height: 1;
@@ -10,5 +10,5 @@
 }
 
 .topic-tag:hover {
-  background-color: #9b319b;
+  background-color: #b4637a;
 }

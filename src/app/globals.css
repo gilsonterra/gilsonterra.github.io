@@ -12,15 +12,15 @@
 }
 
 [data-theme="light"] {
-  --background: #e5e5e5;
-  --foreground: #1a1a1a;
-  --text-secondary: #1a1a1abf;
+  --background: #faf4ed;
+  --foreground: #575279;
+  --text-secondary: #797593;
 }
 
 [data-theme="dark"] {
-  --background: #1a1a1a;
-  --foreground: #e5e5e5;
-  --text-secondary: #ffffffbf;
+  --background: #232136;
+  --foreground: #e0def4;
+  --text-secondary:  #908caa;
 }
 
 /*

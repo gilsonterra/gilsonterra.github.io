@@ -30,7 +30,7 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
       >
         <span
           style={{
-            background: "purple",
+            background: "#ea9a97",
             fontSize: "2rem",
             lineHeight: "2rem",
             padding: "10px",

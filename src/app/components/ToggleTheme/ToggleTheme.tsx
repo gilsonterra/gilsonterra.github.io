@@ -24,12 +24,12 @@ export default function ThemeToggle() {
     >
       {theme === "light" ? (
         <MoonIcon
-          style={{ width: "24px", height: "24px", color: "#000" }}
+          style={{ width: "24px", height: "24px", color: "#907aa9" }}
           title="Tema Escuro"
         />
       ) : (
         <SunIcon
-          style={{ width: "24px", height: "24px", color: "#FFD700" }}
+          style={{ width: "24px", height: "24px", color: "#f6c177" }}
           title="Tema Claro"
         />
       )}
