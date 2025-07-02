@@ -1,5 +1,10 @@
+'use client'
+
+import Link from "next/link";
 import BrokenNeonText from "../components/BrokenNeonText/BrokenNeonText";
 import DottedShadowText from "../components/DottedShadowText/DottedShadowText";
+import Spinner from "../components/Spinner/Spinner";
+import AlertIcon from "../components/AlertIcon/AlertIcon";
 
 const PlaygroundPage = () => {
   return (
@@ -26,8 +31,23 @@ const PlaygroundPage = () => {
             <BrokenNeonText />
           </div>
         </li>
+        <li>
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <span>Páginas</span>
+            <Link href='/performance-percebida' style={{ padding: "5px" }}>
+              <div style={{ fontSize: '1.5rem', display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <Spinner size={40} />Performance Percebida
+              </div>
+            </Link>
+            <Link href='/error-boundary' style={{ padding: "5px" }}>
+              <div style={{ fontSize: '1.5rem', display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <AlertIcon /> Error Boundary
+              </div>
+            </Link>
+          </div>
+        </li>
       </ul>
-    </div>
+    </div >
   );
 };
 

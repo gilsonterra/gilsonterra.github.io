@@ -2,7 +2,7 @@ import Notes from "./components/Notes/Notes";
 import { getFilesWithMetadata } from "./utils/content";
 
 export default function Home() {
-  const filenames = getFilesWithMetadata().slice(0, 4);
+  const filenames = getFilesWithMetadata('performance').slice(0, 4);
 
   return (
     <div
@@ -17,21 +17,23 @@ export default function Home() {
       <p>
         <strong>Frontend Developer</strong> com mais de 15 anos de experiência,
         focado em tecnologia, performance, UX, Design e inovação. <br />
-        Atualmente no{" "}
-        <a
-          href="https://www.grupoboticario.com.br"
-          target="_blank"
-          rel="noreferrer"
-          style={{
-            textDecoration: "underline",
-            textDecorationStyle: "dotted",
-            textUnderlineOffset: "0.3em",
-            fontStyle: "italic",
-            fontWeight: "bold",
-          }}
-        >
-          Grupo Boticário.
-        </a>
+        <p style={{ padding: '10px 0' }}>
+          Atualmente no{" "}
+          <a
+            href="https://www.grupoboticario.com.br"
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              textDecoration: "underline",
+              textDecorationStyle: "dotted",
+              textUnderlineOffset: "0.3em",
+              fontStyle: "italic",
+              fontWeight: "bold",
+            }}
+          >
+            Grupo Boticário.
+          </a>
+        </p>
       </p>
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         <h2

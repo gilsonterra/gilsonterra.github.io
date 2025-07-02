@@ -2,12 +2,10 @@ import { Frontmatter } from "@/app/types/content";
 import { getFileName } from "@/app/utils/content";
 import Link from "next/link";
 import TopicTag from "../TopicTag/TopicTag";
-import { parseDatePtBr } from "@/app/utils/date";
 import "./styles.css";
 
 const NoteItem: React.FC<Frontmatter & { filename: string }> = ({
   title,
-  updatedAt,
   description,
   topics,
   filename,
@@ -26,9 +24,6 @@ const NoteItem: React.FC<Frontmatter & { filename: string }> = ({
           <strong style={{ fontSize: "var(--text-lg)" }}>
             {title || getFileName(filename)}
           </strong>
-          <span style={{ fontSize: "var(--text-xs)", opacity: 0.3 }}>
-            {parseDatePtBr(updatedAt)}
-          </span>
         </div>
         <span style={{ fontSize: "var(--text-sm)" }}>{description}</span>
       </Link>

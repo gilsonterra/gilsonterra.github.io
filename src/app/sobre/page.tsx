@@ -13,7 +13,7 @@ export default function About() {
       }}
     >
       <p>
-        👋 Olá! Meu nome é <strong>Gilson Terra</strong> e sou{" "}
+        Olá! Meu nome é <strong>Gilson Terra</strong> e sou{" "}
         <strong>desenvolvedor frontend</strong> com mais de{" "}
         <strong>15 anos de experiência</strong> no mercado. Meu foco é criar
         interfaces <strong>fluidas e intuitivas</strong>, sempre equilibrando
