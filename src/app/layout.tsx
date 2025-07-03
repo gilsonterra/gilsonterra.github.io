@@ -7,6 +7,8 @@ import Body from "./components/Body/Body";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import ThemeProvider from "./providers/themeProvider";
+import ReactQueryProvider from "./components/ReactQueryProvider/ReactQueryProvider";
+
 
 /*
 const patrickHand = Patrick_Hand({
@@ -44,7 +46,9 @@ export default function RootLayout({
         <Body>
           <div className="layout">
             <Header />
-            <main>{children}</main>
+            <main>
+              <ReactQueryProvider>{children}</ReactQueryProvider>
+            </main>
             <Footer />
           </div>
         </Body>
