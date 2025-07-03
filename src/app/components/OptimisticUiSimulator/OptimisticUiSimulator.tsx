@@ -4,12 +4,32 @@ import styled from "styled-components";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import Spinner from "../Spinner/Spinner";
 
-const StarButton = styled.button`
+const StarButton = styled.button<{ $active?: boolean }>`
   cursor: pointer;
   transition: border 0.2s, box-shadow 0.2s;
   outline: none;
-`
-const TIMEOUT = 5000;
+
+  svg {
+    animation: ${({ $active }) => $active ? "pulseGlow 600ms ease-in-out 1" : "none"};
+  }
+
+  @keyframes pulseGlow {
+    0% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 0px yellow);
+    }
+    50% {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 10px yellow);
+    }
+    100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 0px yellow);
+    }
+  }
+`;
+
+const TIMEOUT = 3000;
 
 type OptimisticUiSimulatorProps = {
   timeout?: number;
@@ -17,9 +37,15 @@ type OptimisticUiSimulatorProps = {
   optimistic?: boolean;
   error?: boolean;
   text: string;
-}
+};
 
-const OptimisticUiSimulator: React.FC<OptimisticUiSimulatorProps> = ({ text, error = false, timeout = TIMEOUT, optimistic = false, showLoading = false }) => {
+const OptimisticUiSimulator: React.FC<OptimisticUiSimulatorProps> = ({
+  text,
+  error = false,
+  timeout = TIMEOUT,
+  optimistic = false,
+  showLoading = false,
+}) => {
   const [active, setActive] = useState(false);
   const [activeOptimistic, setActiveOptimistic] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -33,18 +59,19 @@ const OptimisticUiSimulator: React.FC<OptimisticUiSimulatorProps> = ({ text, err
     setLoading(true);
     setProgress(100);
     setMessageError("");
-    setActiveOptimistic((prev) => !prev)
+    setActiveOptimistic((prev) => !prev);
 
     await new Promise((resolve) => {
       setTimeout(() => {
-        setActive(prev => !prev);
+        setActive((prev) => !prev);
         setProgress(0);
 
         if (error) {
           setActiveOptimistic((prev) => !prev);
-          setActive(prev => !prev);
+          setActive((prev) => !prev);
           setMessageError("Erro!");
         }
+
         resolve(null);
       }, timeout);
     });
@@ -52,38 +79,44 @@ const OptimisticUiSimulator: React.FC<OptimisticUiSimulatorProps> = ({ text, err
     setLoading(false);
   };
 
-
   const handleClick = async () => {
     await simulateRequest();
-  }
+  };
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <div
         style={{
           fontSize: "var(--text-xl)",
           display: "flex",
           alignItems: "center",
           gap: "50px",
-          position: 'relative'
+          position: "relative",
         }}
       >
-        <StarButton onClick={handleClick}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            {showLoading
-              ? (loading ? <Spinner size={45} /> : <StarIcon color={color} height={50} />)
-              : <StarIcon color={optimistic ? colorOptimistic : color} height={50} />
-            }
+        <StarButton onClick={handleClick} $active={optimistic ? activeOptimistic : active}>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            {showLoading ? (
+              loading ? (
+                <Spinner size={45} />
+              ) : (
+                <StarIcon color={color} height={50} />
+              )
+            ) : (
+              <StarIcon
+                color={optimistic ? colorOptimistic : color}
+                height={50}
+              />
+            )}
             {text}
-            {progress > 0 &&
-              (<div style={{ display: 'flex' }}>
+            {progress > 0 && (
+              <div style={{ display: "flex" }}>
                 <ProgressBar width={progress} time={`${TIMEOUT}ms`} />
-              </div>)
-            }
-            {messageError && <div style={{ color: 'red' }}>{messageError}</div>}
+              </div>
+            )}
+            {messageError && <div style={{ color: "red" }}>{messageError}</div>}
           </div>
         </StarButton>
-
-
       </div>
     </div>
   );
