@@ -1,5 +1,6 @@
 'use client'
-import AlertIcon from "../components/AlertIcon/AlertIcon";
+
+import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
 import BugSimulator from "../components/BugSimulator/BugSimulator";
 import DottedShadowText from "../components/DottedShadowText/DottedShadowText";
 import { ErrorBoundary } from "../components/ErrorBoundary/ErrorBoundary";
@@ -18,7 +19,7 @@ const ErrorBoundaryPages: React.FC = () => {
         <div>
           <ErrorBoundary fallback={
             <div style={{ display: 'flex', gap: '10px', alignItems: 'center', fontSize: '1.5rem', color: 'red' }}>
-              <AlertIcon /> Oops! Ocorreu um erro.
+              <ExclamationTriangleIcon height={50} /> Oops! Ocorreu um erro.
             </div>
           }>
             <BugSimulator text="Componente funcionando dentro de um Error Boundary" />

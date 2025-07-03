@@ -4,7 +4,7 @@ import Link from "next/link";
 import BrokenNeonText from "../components/BrokenNeonText/BrokenNeonText";
 import DottedShadowText from "../components/DottedShadowText/DottedShadowText";
 import Spinner from "../components/Spinner/Spinner";
-import AlertIcon from "../components/AlertIcon/AlertIcon";
+import { StarIcon, ExclamationTriangleIcon } from "@heroicons/react/24/solid";
 
 const PlaygroundPage = () => {
   return (
@@ -41,7 +41,12 @@ const PlaygroundPage = () => {
             </Link>
             <Link href='/error-boundary' style={{ padding: "5px" }}>
               <div style={{ fontSize: '1.5rem', display: 'flex', gap: '10px', alignItems: 'center' }}>
-                <AlertIcon /> Error Boundary
+                <ExclamationTriangleIcon color="red" height={50} /> Error Boundary
+              </div>
+            </Link>
+            <Link href='/optimistic-ui' style={{ padding: "5px" }}>
+              <div style={{ fontSize: '1.5rem', display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <StarIcon color="yellow" height={50} /> Optimistic UI
               </div>
             </Link>
           </div>

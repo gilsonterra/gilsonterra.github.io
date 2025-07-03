@@ -42,11 +42,13 @@ type ProgressBarProps = {
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ width, time = '1s' }) => {
   return (
-    <Container>
-      <Bar>
-        <Progress width={width} time={time} />
-      </Bar>
-    </Container>
+    <div style={{ position: 'relative', width: '400px' }}>
+      <Container>
+        <Bar>
+          <Progress width={width} time={time} />
+        </Bar>
+      </Container>
+    </div>
   );
 };
 
