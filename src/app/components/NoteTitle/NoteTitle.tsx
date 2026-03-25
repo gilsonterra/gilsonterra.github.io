@@ -8,10 +8,11 @@ const gloriaHallelujah = Gloria_Hallelujah({
 
 type NoteTitleProps = {
   children: React.ReactNode;
+  className?: string;
 };
 
-const NoteTitle: React.FC<NoteTitleProps> = ({ children }) => {
-  return <strong className={gloriaHallelujah.className + " note-title"}>{children}</strong>;
+const NoteTitle: React.FC<NoteTitleProps> = ({ children, className = "" }) => {
+  return <strong className={[gloriaHallelujah.className, "note-title", className].filter(Boolean).join(" ")}>{children}</strong>;
 };
 
 export default NoteTitle;

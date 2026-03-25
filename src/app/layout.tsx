@@ -3,6 +3,7 @@ import "./globals.css";
 import Body from "./components/Body/Body";
 import Header from "./components/Header/Header";
 import HomePageFrame from "./components/HomePageFrame";
+import PageTexture from "./components/PageTexture/PageTexture";
 import ReactQueryProvider from "./components/ReactQueryProvider/ReactQueryProvider";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <Body>
+        <PageTexture />
         <Header />
         <HomePageFrame>
           <ReactQueryProvider>{children}</ReactQueryProvider>

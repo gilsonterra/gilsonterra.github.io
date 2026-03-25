@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Button from "../components/Button/Button";
-import DottedShadowText from "../components/DottedShadowText/DottedShadowText";
+import TypewriterTitle from "../components/TypewriterTitle/TypewriterTitle";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
 import Spinner from "../components/Spinner/Spinner";
 
@@ -22,7 +22,7 @@ const PerceivedPerformancePages: React.FC = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       <div style={{ display: "flex", justifyContent: "center", flexWrap: 'wrap', gap: '20px', padding: '1rem 0' }}>
-        <DottedShadowText text="Performance Percebida" size="3rem" />
+        <TypewriterTitle text="Performance Percebida" size="3rem" />
         <div style={{ display: 'flex', gap: '20px', justifyContent: 'center' }}>
           <input
             type="range"

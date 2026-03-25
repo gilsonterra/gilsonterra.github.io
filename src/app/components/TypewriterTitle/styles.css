@@ -1,0 +1,10 @@
+.typewriter-title {
+  display: inline-block;
+  max-width: 100%;
+  line-height: 1.08;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  color: inherit;
+  text-wrap: balance;
+  text-shadow: 0.025em 0.025em 0 rgba(63, 52, 31, 0.12);
+}

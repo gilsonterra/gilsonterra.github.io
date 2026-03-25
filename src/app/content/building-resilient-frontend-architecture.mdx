@@ -1,6 +1,6 @@
 ---
 title: "Building Resilient Frontend Architecture"
-description: "Criando uma arquitetura frontend resiliente"
+description: "Resumo inicial sobre arquitetura frontend resiliente, com foco em robustez e manutenção."
 updatedAt: "2025-02-06"
 startedAt: "2025-02-06"
 type: "note"
@@ -8,7 +8,32 @@ cover: "/images/building-resilient-frontend.png"
 topics: ["dev", "front", "performance"]
 ---
 
-Link da palestra: [youtube](https://www.youtube.com/watch?v=TqfbAXCCVwE&ab_channel=GOTOConferences)
+# Building Resilient Frontend Architecture
 
-Resumo:
+Anotação rápida de uma palestra sobre como estruturar frontends que continuem sustentáveis conforme o produto cresce. O foco aqui é menos “framework” e mais decisões que reduzem acoplamento, fragilidade e custo de manutenção.
+
+## Link da palestra
+
+[Assista no YouTube](https://www.youtube.com/watch?v=TqfbAXCCVwE&ab_channel=GOTOConferences)
+
+## Ideia central
+
+Uma arquitetura frontend resiliente precisa facilitar três coisas:
+
+- evolução contínua do produto;
+- isolamento de falhas;
+- clareza para quem mantém o código.
+
+Quando a base não tem limites bem definidos, qualquer mudança pequena começa a custar caro. O time perde velocidade, aumenta o risco de regressão e cada entrega passa a depender de conhecimento muito específico.
+
+## O que vale observar ao revisar uma arquitetura
+
+- Separação clara entre interface, estado, regras de negócio e integração.
+- Componentes com responsabilidade bem definida.
+- Dependências externas encapsuladas.
+- Tratamento previsível de erros e estados de falha.
+- Estrutura que permita testar partes importantes sem esforço excessivo.
+
+## Material visual
+
 ![Building resilient frontend](/images/building-resilient-frontend.png)

@@ -1,14 +1,15 @@
 import BackButton from "@/app/components/BackButton/BackButton";
+import TypewriterTitle from "@/app/components/TypewriterTitle/TypewriterTitle";
+import NoteTitle from "@/app/components/NoteTitle/NoteTitle";
+import TopicTag from "@/app/components/TopicTag/TopicTag";
+import { Frontmatter } from "@/app/types/content";
 import { getFilesWithMetadata } from "@/app/utils/content";
-import path from "path";
+import { parseDatePtBr } from "@/app/utils/date";
 import fs from "fs";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import DottedShadowText from "@/app/components/DottedShadowText/DottedShadowText";
 import { notFound } from "next/navigation";
-import TopicTag from "@/app/components/TopicTag/TopicTag";
-import { parseDatePtBr } from "@/app/utils/date";
-import { Frontmatter } from "@/app/types/content";
+import path from "path";
 import { Suspense } from "react";
 
 type PostProps = {
@@ -24,7 +25,8 @@ export async function generateStaticParams() {
 const NotePage: React.FC<PostProps> = async ({ params }) => {
   const slug = (await params).slug;
   const components = {
-    DottedShadowText,
+    DottedShadowText: TypewriterTitle,
+    TypewriterTitle,
     ul: (props: Record<string, unknown>) => <ul style={{ listStyle: "auto" }} {...props} />,
     ol: (props: Record<string, unknown>) => <ol style={{ listStyle: "auto" }} {...props} />,
     li: (props: Record<string, unknown>) => <li {...props} />,
@@ -41,7 +43,7 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
     ),
   };
 
-  const filePath = path.join(process.cwd(), "/src/app/content", `${slug}.mdx`);
+  const filePath = path.join(process.cwd(), "/src/app/content", slug + ".mdx");
 
   if (!fs.existsSync(filePath)) {
     notFound();
@@ -52,7 +54,7 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
   const metadata = frontmatter as Frontmatter;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "26px", maxWidth: "720px" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "26px", width: "100%" }}>
       <BackButton text="voltar" />
 
       <div
@@ -67,17 +69,19 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
         <span style={{ fontSize: "var(--text-sm)", color: "var(--text-tertiary)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
           Atualizado em {parseDatePtBr(metadata?.updatedAt)}
         </span>
-        <DottedShadowText text={metadata.title} size="clamp(2.5rem, 5vw, 4.5rem)" />
+        <NoteTitle className="note-title--page">{metadata.title}</NoteTitle>
       </div>
 
-      <Suspense fallback={<>Carregando...</>}>
-        <MDXRemote source={content} components={components} />
-      </Suspense>
+      <div style={{ width: "100%", maxWidth: "720px" }}>
+        <Suspense fallback={<>Carregando...</>}>
+          <MDXRemote source={content} components={components} />
+        </Suspense>
 
-      <div style={{ display: "flex", gap: "0.45rem", flexWrap: "wrap", paddingTop: "0.25rem" }}>
-        {metadata.topics?.map((topic: string) => (
-          <TopicTag key={topic} text={topic} />
-        ))}
+        <div style={{ display: "flex", gap: "0.45rem", flexWrap: "wrap", paddingTop: "0.25rem" }}>
+          {metadata.topics?.map((topic: string) => (
+            <TopicTag key={topic} text={topic} />
+          ))}
+        </div>
       </div>
     </div>
   );

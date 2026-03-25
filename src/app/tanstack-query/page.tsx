@@ -1,6 +1,6 @@
 'use client'
 import { useQuery } from "@tanstack/react-query";
-import DottedShadowText from "../components/DottedShadowText/DottedShadowText";
+import TypewriterTitle from "../components/TypewriterTitle/TypewriterTitle";
 import UserList from "../components/UserList/UserList";
 
 const OptimisticUiPages: React.FC = () => {
@@ -26,7 +26,7 @@ const OptimisticUiPages: React.FC = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
       <div style={{ display: "flex", justifyContent: "center", padding: '1rem 0', flexWrap: 'wrap', gap: '5px' }}>
-        <DottedShadowText text="TanStack Query" size="3rem" />
+        <TypewriterTitle text="TanStack Query" size="3rem" />
       </div>
 
       <UserList data={data} loading={isLoading} />

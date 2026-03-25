@@ -13,8 +13,19 @@
   transform-origin: left center;
 }
 
+.note-title--page {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1;
+  color: var(--foreground);
+  text-shadow: 0.03em 0 rgba(17, 17, 17, 0.08);
+}
+
 @media (max-width: 560px) {
   .note-title {
     font-size: 1.3rem;
+  }
+
+  .note-title--page {
+    font-size: clamp(1.9rem, 10vw, 2.8rem);
   }
 }

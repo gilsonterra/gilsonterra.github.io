@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import DottedShadowText from "../DottedShadowText/DottedShadowText";
+import TypewriterTitle from "../TypewriterTitle/TypewriterTitle";
 
 const Container = styled.div`
   line-height: 1.8;
@@ -81,7 +81,7 @@ type MarkdownViewerProps = {
 const MarkdownViewer: React.FC<MarkdownViewerProps> = ({ title, content }) => {
   return (
     <div className="flex flex-col">
-      <DottedShadowText text={title} size="2rem" />
+      <TypewriterTitle text={title} size="2rem" />
       <Container dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );

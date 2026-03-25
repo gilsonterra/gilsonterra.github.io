@@ -1,4 +1,15 @@
+import { Gloria_Hallelujah, Orbitron } from "next/font/google";
 import Link from "next/link";
+
+const gloriaHallelujah = Gloria_Hallelujah({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+});
 
 const Title: React.FC = () => {
   return (
@@ -11,9 +22,26 @@ const Title: React.FC = () => {
         letterSpacing: "-0.075em",
       }}
     >
-      <Link href="/" style={{ display: "inline-flex", alignItems: "baseline", gap: "0.1em" }}>
-        <span style={{ fontWeight: 300 }}>Gilson</span>
-        <span style={{ fontWeight: 700 }}>Terra</span>
+      <Link href="/" style={{ display: "inline-flex", alignItems: "baseline" }}>
+        <span
+          className={gloriaHallelujah.className}
+          style={{
+            fontWeight: 400,
+            letterSpacing: "0.01em",
+            transform: "rotate(-1.4deg)",
+            display: "inline-block",
+          }}
+        >
+          Gilson
+        </span>
+        <span
+          className={orbitron.className}
+          style={{
+            fontWeight: 400,
+          }}
+        >
+          Terra
+        </span>
       </Link>
     </div>
   );

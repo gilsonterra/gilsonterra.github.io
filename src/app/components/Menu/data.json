@@ -1,6 +1,10 @@
 {
   "items": [
     {
+      "label": "Início",
+      "href": "/"
+    },
+    {
       "label": "Notas",
       "href": "/notas"
     },
