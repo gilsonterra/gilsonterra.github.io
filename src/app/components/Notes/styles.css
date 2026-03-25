@@ -11,25 +11,21 @@
 }
 
 .notes-container li:nth-child(4n + 1) .note-container {
-  --note-paper: linear-gradient(180deg, #fff3a6 0%, #f1d96e 100%);
   --note-tilt: -2.2deg;
   --tape-tilt: -5deg;
 }
 
 .notes-container li:nth-child(4n + 2) .note-container {
-  --note-paper: linear-gradient(180deg, #ffd8a8 0%, #ffbf73 100%);
   --note-tilt: 1.6deg;
   --tape-tilt: 4deg;
 }
 
 .notes-container li:nth-child(4n + 3) .note-container {
-  --note-paper: linear-gradient(180deg, #dff4a8 0%, #bede71 100%);
   --note-tilt: -1deg;
   --tape-tilt: -2deg;
 }
 
 .notes-container li:nth-child(4n + 4) .note-container {
-  --note-paper: linear-gradient(180deg, #ffe1b8 0%, #f7c98b 100%);
   --note-tilt: 2.4deg;
   --tape-tilt: 5deg;
 }

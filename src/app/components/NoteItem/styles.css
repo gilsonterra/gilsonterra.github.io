@@ -30,6 +30,18 @@
   overflow: hidden;
 }
 
+.note-container--green {
+  --note-paper: linear-gradient(180deg, #ecf9c9 0%, #d7ef9d 100%);
+}
+
+.note-container--yellow {
+  --note-paper: linear-gradient(180deg, #fff8c7 0%, #f7e79a 100%);
+}
+
+.note-container--orange {
+  --note-paper: linear-gradient(180deg, #ffe4c2 0%, #ffd09a 100%);
+}
+
 .note-container::before {
   content: "";
   position: absolute;
@@ -84,16 +96,6 @@
   border-bottom: 2px dashed rgba(118, 96, 30, 0.32);
 }
 
-.note-title {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.55rem, 2.6vw, 2rem);
-  line-height: 1.02;
-  letter-spacing: -0.045em;
-  color: rgba(54, 42, 10, 0.96);
-  text-wrap: balance;
-  max-width: 13ch;
-}
-
 .note-description {
   color: rgba(76, 61, 18, 0.84);
   font-size: 0.98rem;
@@ -130,10 +132,6 @@
     padding: 1.7rem 1.1rem 1.2rem;
   }
 
-  .note-title {
-    font-size: 1.5rem;
-    max-width: none;
-  }
 
   .note-description {
     max-width: none;

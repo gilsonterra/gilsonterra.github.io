@@ -5,4 +5,5 @@ export type MenuItem = {
 
 export type MenuItems = {
   items: MenuItem[];
+  activePath?: string;
 };

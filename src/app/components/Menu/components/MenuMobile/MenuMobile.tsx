@@ -6,9 +6,11 @@ import Link from "next/link";
 import React, { useState } from "react";
 import "./style.css";
 
-const MenuMobile: React.FC<MenuItems> = ({ items }) => {
+const MenuMobile: React.FC<MenuItems> = ({ items, activePath = "" }) => {
   const [open, setOpen] = useState(false);
   const title = open ? "Fechar" : "Menu";
+  const isActive = (href: string) =>
+    activePath === href || activePath.startsWith(`${href}/`);
 
   return (
     <div className="menu-mobile">
@@ -18,17 +20,13 @@ const MenuMobile: React.FC<MenuItems> = ({ items }) => {
         aria-label={title}
         onClick={() => setOpen(!open)}
       >
-        {open ? (
-          <XMarkIcon width="24" height="24" />
-        ) : (
-          <Bars3Icon width="24" height="24" />
-        )}
+        {open ? <XMarkIcon width="24" height="24" /> : <Bars3Icon width="24" height="24" />}
       </button>
 
       {open && (
         <ul>
           {items?.map((item) => (
-            <li key={`menu-${item.href}`}>
+            <li key={`menu-${item.href}`} className={isActive(item.href) ? "is-active" : ""}>
               <Link
                 href={item.href}
                 onClick={() => setTimeout(() => setOpen(false), 300)}

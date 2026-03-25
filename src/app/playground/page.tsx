@@ -9,9 +9,6 @@ import { StarIcon, ExclamationTriangleIcon, ArrowPathIcon } from "@heroicons/rea
 const PlaygroundPage = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "50px" }}>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <DottedShadowText text="Playground" size="3rem" />
-      </div>
       <ul
         style={{
           display: "grid",
