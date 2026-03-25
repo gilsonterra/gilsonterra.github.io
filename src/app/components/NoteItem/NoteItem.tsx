@@ -10,36 +10,27 @@ const NoteItem: React.FC<Frontmatter & { filename: string }> = ({
   topics,
   filename,
 }) => {
+  const topicsCount = topics?.length ?? 0;
+  const noteColorClass =
+    topicsCount <= 1
+      ? "note-container--green"
+      : topicsCount <= 3
+        ? "note-container--yellow"
+        : "note-container--orange";
+
   return (
-    <div className="note-container">
+    <article className={`note-container ${noteColorClass}`}>
       <Link href={`/notas/${getFileName(filename)}`} className="note-item">
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "5px",
-            justifyContent: "space-between",
-          }}
-        >
-          <strong style={{ fontSize: "var(--text-lg)" }}>
-            {title || getFileName(filename)}
-          </strong>
-        </div>
-        <span style={{ fontSize: "var(--text-sm)" }}>{description}</span>
+        <span className="note-eyebrow">Nota</span>
+        <strong className="note-title">{title || getFileName(filename)}</strong>
+        {description ? <span className="note-description">{description}</span> : null}
       </Link>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "5px",
-          marginTop: "5px",
-        }}
-      >
+      <div className="note-topics">
         {topics?.map((topic) => (
           <TopicTag key={topic} text={topic} href={`/categoria/${topic}`} />
         ))}
       </div>
-    </div>
+    </article>
   );
 };
 

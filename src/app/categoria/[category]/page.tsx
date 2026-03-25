@@ -30,14 +30,16 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
       >
         <span
           style={{
-            background: "#ea9a97",
+            background: "var(--accent-soft)",
+            color: "var(--accent-hover)",
             fontSize: "2rem",
             lineHeight: "2rem",
-            padding: "10px",
-            borderRadius: "5px",
+            padding: "12px 16px",
+            borderRadius: "999px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            border: "1px solid var(--border)",
           }}
         >
           {category}

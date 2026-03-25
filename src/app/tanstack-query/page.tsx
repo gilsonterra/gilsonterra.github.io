@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import DottedShadowText from "../components/DottedShadowText/DottedShadowText";
 import UserList from "../components/UserList/UserList";
 
-
 const OptimisticUiPages: React.FC = () => {
   const fetchData = async () => {
     try {
@@ -16,7 +15,7 @@ const OptimisticUiPages: React.FC = () => {
     }
   };
 
-  const { data, isLoading, isRefetching } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['users'],
     queryFn: fetchData,
     staleTime: Infinity,

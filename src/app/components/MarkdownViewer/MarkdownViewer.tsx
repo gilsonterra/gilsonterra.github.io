@@ -2,40 +2,45 @@ import styled from "styled-components";
 import DottedShadowText from "../DottedShadowText/DottedShadowText";
 
 const Container = styled.div`
-  line-height: 1.6;
+  line-height: 1.8;
   font-size: 1rem;
+  color: var(--foreground);
 
   h1,
   h2,
   h3 {
-    font-weight: bold;
-    padding: 0.5rem 0;
+    font-weight: 700;
+    padding: 1rem 0 0.7rem;
   }
 
   p {
     margin-bottom: 16px;
+    color: var(--text-secondary);
   }
 
   blockquote {
-    border-left: 4px solid white;
+    border-left: 4px solid var(--accent);
     padding-left: 16px;
     font-style: italic;
-    color: #555;
+    color: var(--text-secondary);
   }
 
   code {
-    background-color: #f4f4f4;
+    background-color: var(--background-muted);
+    color: var(--foreground);
     padding: 4px 8px;
+    border-radius: 8px;
     font-family: "Courier New", Courier, monospace;
   }
 
   pre {
-    background-color: #2e2e2e;
-    color: #f4f4f4;
+    background-color: var(--color-primary-900);
+    color: var(--accent-contrast);
     padding: 16px;
-    border-radius: 8px;
+    border-radius: 16px;
     white-space: pre-wrap;
     word-wrap: break-word;
+    box-shadow: var(--shadow-md);
   }
 
   ul,
@@ -45,21 +50,25 @@ const Container = styled.div`
 
   li {
     margin-bottom: 8px;
+    color: var(--text-secondary);
   }
 
   img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 1.5rem auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
   }
 
   a {
-    font-weight: lighter;
-    color: #eee;
+    font-weight: 600;
+    color: var(--link);
     text-decoration: underline;
-    text-underline-offset: 0.5rem;
-    text-decoration-color: #eee;
+    text-underline-offset: 0.35rem;
+    text-decoration-style: dotted;
+    text-decoration-color: var(--accent);
     position: relative;
   }
 `;

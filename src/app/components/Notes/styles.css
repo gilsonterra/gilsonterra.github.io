@@ -1,16 +1,49 @@
-@media (min-width: 768px) {
-  .notes-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 769px) {
-  .notes-container {
-    grid-template-columns: 1fr;
-  }
-}
-
 .notes-container {
   display: grid;
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 28px 24px;
+  align-items: start;
+  padding: 0.5rem 0 1.25rem;
+}
+
+.notes-container li {
+  list-style: none;
+}
+
+.notes-container li:nth-child(4n + 1) .note-container {
+  --note-paper: linear-gradient(180deg, #fff3a6 0%, #f1d96e 100%);
+  --note-tilt: -2.2deg;
+  --tape-tilt: -5deg;
+}
+
+.notes-container li:nth-child(4n + 2) .note-container {
+  --note-paper: linear-gradient(180deg, #ffd8a8 0%, #ffbf73 100%);
+  --note-tilt: 1.6deg;
+  --tape-tilt: 4deg;
+}
+
+.notes-container li:nth-child(4n + 3) .note-container {
+  --note-paper: linear-gradient(180deg, #dff4a8 0%, #bede71 100%);
+  --note-tilt: -1deg;
+  --tape-tilt: -2deg;
+}
+
+.notes-container li:nth-child(4n + 4) .note-container {
+  --note-paper: linear-gradient(180deg, #ffe1b8 0%, #f7c98b 100%);
+  --note-tilt: 2.4deg;
+  --tape-tilt: 5deg;
+}
+
+.notes-container li:nth-child(even) {
+  margin-top: clamp(0.75rem, 2vw, 2rem);
+}
+
+@media (max-width: 640px) {
+  .notes-container {
+    gap: 22px;
+  }
+
+  .notes-container li:nth-child(even) {
+    margin-top: 0;
+  }
 }

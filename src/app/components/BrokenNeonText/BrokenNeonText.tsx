@@ -26,7 +26,7 @@ const textAnimation = (color: string) => keyframes`
     text-shadow: -3px -3px 5px ${color}, 3px -3px 5px ${color}, 3px 3px 5px ${color}, -3px 3px 5px ${color};
   }
   3% {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 253, 248, 0.45);
     text-shadow: none;
   }
   5% {
@@ -34,11 +34,11 @@ const textAnimation = (color: string) => keyframes`
     text-shadow: -3px -3px 5px ${color}, 3px -3px 5px ${color}, 3px 3px 5px ${color}, -3px 3px 5px ${color};
   }
   15% {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 253, 248, 0.45);
     text-shadow: none;
   }
   100% {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 253, 248, 0.45);
     text-shadow: none;
   }
 `;
@@ -61,12 +61,11 @@ const BrokenLetter = styled.span`
   margin: 0 0.1em;
   animation: ${brokenLetterAnimation} 300ms ease-out 1;
   animation-delay: 3s;
-  animation-fill-mode: forwards; // Mantem a posição final
+  animation-fill-mode: forwards;
 `;
 
 const BlinkLetter = styled.span<{ color: string; $time: string }>`
-  color: white;
-  text-shadow: none;
+  color: var(--background-elevated);
   text-shadow:
     -3px -3px 5px ${(props) => props.color},
     3px -3px 5px ${(props) => props.color},
@@ -107,15 +106,15 @@ const Neon = styled.div<{ color: string }>`
 const BrokenNeonText: React.FC = () => {
   return (
     <Neon
-      color="white"
+      color="var(--accent)"
       style={{ fontWeight: "200", letterSpacing: "0.05em", fontSize: "2em" }}
     >
       Pág
-      <BlinkLetter color="white" $time="1s">
+      <BlinkLetter color="var(--accent)" $time="1s">
         in
       </BlinkLetter>
       a não{" "}
-      <BlinkLetter color="white" $time="5s">
+      <BlinkLetter color="var(--accent)" $time="5s">
         enc
       </BlinkLetter>
       on

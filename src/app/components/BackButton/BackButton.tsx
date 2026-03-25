@@ -14,10 +14,16 @@ const BackButton: React.FC<BackButtonProps> = ({ text }) => {
     <button
       onClick={() => router.back()}
       style={{
-        display: "flex",
+        display: "inline-flex",
         alignItems: "center",
-        gap: "5px",
-        padding: "10px 0",
+        gap: "0.5rem",
+        width: "fit-content",
+        padding: "0.7rem 0.9rem",
+        borderRadius: "999px",
+        border: "1px solid var(--border)",
+        background: "var(--background-elevated)",
+        color: "var(--text-secondary)",
+        boxShadow: "var(--shadow-sm)",
       }}
     >
       <ArrowLeftIcon width={18} height={18} />

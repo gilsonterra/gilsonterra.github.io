@@ -1,35 +1,36 @@
-
 import styled, { keyframes } from "styled-components";
 
 const loader = (width: number) => keyframes`
   0% {
-		width: 0;
-	}
-	100% {
-		width: ${width}%;
-	}
+    width: 0;
+  }
+  100% {
+    width: ${width}%;
+  }
 `;
 
 const Container = styled.div`
-  border-radius: 60px;
-	overflow: hidden;
+  border-radius: 999px;
+  overflow: hidden;
   width: 100%;
   left: 50%;
   max-width: 50%;
   position: absolute;
   top: 50%;
-  transform:  translate3d(-50%,-50%,0);
-`
+  transform: translate3d(-50%, -50%, 0);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+`;
 
 const Bar = styled.span`
-  background: rgba(244, 245, 246, .1);
+  background: var(--background-muted);
   display: block;
 `;
 
-const Progress = styled.span<{ width: number, time: string }>`
-  animation: ${(props) => loader(props.width)} ${props => props.time} ease forwards;
-  background: #9B4DCA;
-  color: #fff;
+const Progress = styled.span<{ width: number; time: string }>`
+  animation: ${(props) => loader(props.width)} ${(props) => props.time} ease forwards;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  color: var(--accent-contrast);
   padding: 10px;
   width: 0;
   display: block;
@@ -40,9 +41,9 @@ type ProgressBarProps = {
   time?: string;
 };
 
-const ProgressBar: React.FC<ProgressBarProps> = ({ width, time = '1s' }) => {
+const ProgressBar: React.FC<ProgressBarProps> = ({ width, time = "1s" }) => {
   return (
-    <div style={{ position: 'relative', width: '400px' }}>
+    <div style={{ position: "relative", width: "400px" }}>
       <Container>
         <Bar>
           <Progress width={width} time={time} />

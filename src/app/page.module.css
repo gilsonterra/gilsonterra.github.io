@@ -1,0 +1,141 @@
+:global(body) {
+  --home-bg: var(--background);
+  --home-text: var(--foreground);
+  --home-shadow: rgba(68, 66, 45, 0.14);
+  background:
+    radial-gradient(circle at top center, rgba(255, 255, 255, 0.92), transparent 32%),
+    linear-gradient(180deg, #fbfaf5 0%, var(--home-bg) 100%);
+  color: var(--home-text);
+  overflow: hidden;
+}
+
+:global(:root) {
+  --safe-height: 100vh;
+  --pointer-x: 0px;
+  --pointer-y: 0px;
+}
+
+.hero {
+  position: relative;
+  min-height: var(--safe-height);
+  height: var(--safe-height);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.texture,
+.texture::before,
+.texture::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.texture {
+  pointer-events: none;
+  opacity: 0.9;
+  background:
+    radial-gradient(circle at 16% 72%, rgba(193, 189, 154, 0.26) 0 8%, transparent 8.5%),
+    radial-gradient(circle at 82% 18%, rgba(167, 162, 119, 0.2) 0 9%, transparent 9.5%);
+}
+
+.texture::before {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560'%3E%3Cpath d='M72 76c70-80 190-84 249-6 64 83-32 146-17 223 15 80 120 100 112 167-9 74-102 119-196 91-75-23-127-96-157-169-31-74-42-168 9-228Z' fill='none' stroke='rgba(88,86,59,0.16)' stroke-width='1.5'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='620' height='620' viewBox='0 0 620 620'%3E%3Cpath d='M76 280c0-102 114-184 234-194 103-8 210 41 232 128 23 92-62 115-112 182-43 56-51 155-128 175-92 24-226-55-226-291Z' fill='none' stroke='rgba(88,86,59,0.11)' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-position:
+    -12vw -8vh,
+    72vw 10vh;
+  background-repeat: no-repeat;
+  background-size:
+    44vw auto,
+    38vw auto;
+}
+
+.texture::after {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cpath d='M120 20c52 16 86 59 128 91 63 48 162 66 183 137 24 80-54 136-110 187-51 47-89 119-157 124-83 6-151-74-175-151C-38 285 17 163 95 91c20-18 45-27 25-71Z' fill='none' stroke='rgba(88,86,59,0.12)' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-position: 8vw 78vh;
+  background-repeat: no-repeat;
+  background-size: 28vw auto;
+}
+
+.portrait {
+  position: absolute;
+  inset: auto 50% 0;
+  z-index: 1;
+  width: min(104vw, 1080px);
+  transform: translateX(calc(-50% + (var(--pointer-x) * 0.45)));
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  will-change: transform;
+}
+
+.portraitHalo {
+  position: absolute;
+  left: 50%;
+  bottom: 48%;
+  width: min(68vw, 470px);
+  aspect-ratio: 1 / 0.78;
+  transform: translateX(calc(-50% + (var(--pointer-x) * 0.75))) translateY(calc(var(--pointer-y) * -0.5));
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.72) 0 48%, rgba(214, 211, 187, 0.42) 60%, transparent 78%),
+    repeating-radial-gradient(circle at center, rgba(88, 86, 59, 0.06) 0 1px, transparent 1px 5px);
+  filter: blur(0.3px);
+  will-change: transform;
+}
+
+.portraitImage {
+  position: relative;
+  display: block;
+  width: min(100%, 1080px);
+  max-height: calc(var(--safe-height) * 0.96);
+  height: auto;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: translate3d(calc(var(--pointer-x) * 0.85), max(calc(var(--pointer-y) * 0.7), 0px), 0);
+  filter: drop-shadow(0 18px 40px var(--home-shadow));
+  will-change: transform;
+}
+
+@media (max-width: 900px) {
+  .portrait {
+    width: min(112vw, 760px);
+  }
+
+  .portraitHalo {
+    width: min(76vw, 360px);
+    bottom: 54%;
+  }
+
+  .portraitImage {
+    max-height: calc(var(--safe-height) * 0.88);
+  }
+
+  .texture::before {
+    background-size: 72vw auto, 58vw auto;
+    background-position: -28vw 6vh, 74vw 12vh;
+  }
+
+  .texture::after {
+    background-size: 42vw auto;
+    background-position: -8vw 76vh;
+  }
+}
+
+@media (max-width: 560px) {
+  .portrait {
+    width: min(150vw, 760px);
+  }
+
+  .portraitHalo {
+    width: min(88vw, 320px);
+    bottom: 57%;
+  }
+
+  .portraitImage {
+    max-height: calc(var(--safe-height) * 0.92);
+  }
+}

@@ -3,19 +3,12 @@
 import { MenuItems } from "@/app/components/Menu/type";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./style.css";
 
 const MenuMobile: React.FC<MenuItems> = ({ items }) => {
   const [open, setOpen] = useState(false);
   const title = open ? "Fechar" : "Menu";
-  const [bodyHeight, setBodyHeight] = useState<number>(0);
-  const [bodyWidth, setBodyWidth] = useState<number>(0);
-
-  useEffect(() => {
-    setBodyHeight(document.documentElement.scrollHeight);
-    setBodyWidth(document.documentElement.scrollWidth);
-  }, []);
 
   return (
     <div className="menu-mobile">
@@ -33,12 +26,7 @@ const MenuMobile: React.FC<MenuItems> = ({ items }) => {
       </button>
 
       {open && (
-        <ul
-          style={{
-            height: open ? bodyHeight : "auto",
-            width: open ? bodyWidth : "auto",
-          }}
-        >
+        <ul>
           {items?.map((item) => (
             <li key={`menu-${item.href}`}>
               <Link

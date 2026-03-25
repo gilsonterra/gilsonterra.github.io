@@ -1,25 +1,141 @@
 .note-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 2px;
-  height: 100%;
-  border-radius: 5px;
-  min-height: 50px;
-  height: 100%;
-  min-width: 100px;
-  padding: 5px;
-  border-radius: 5px;
+  gap: 1.2rem;
+  min-height: 260px;
+  padding: 1.8rem 1.4rem 1.3rem;
+  border: 1px solid rgba(122, 107, 45, 0.18);
+  border-radius: 6px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.42), transparent 28%),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(126, 104, 41, 0.08) 0,
+      rgba(126, 104, 41, 0.08) 1px,
+      transparent 1px,
+      transparent 2.15rem
+    ),
+    var(--note-paper, linear-gradient(180deg, #fff5a8 0%, #f4df75 100%));
+  box-shadow:
+    0 16px 28px rgba(77, 61, 18, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transform: rotate(var(--note-tilt, -1.2deg));
+  transform-origin: top center;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+  overflow: hidden;
+}
+
+.note-container::before {
+  content: "";
+  position: absolute;
+  top: 0.7rem;
+  left: 50%;
+  width: 5.2rem;
+  height: 1.15rem;
+  background: linear-gradient(180deg, rgba(255, 246, 214, 0.95), rgba(229, 206, 165, 0.86));
+  border: 1px solid rgba(130, 104, 65, 0.14);
+  box-shadow: 0 2px 4px rgba(92, 73, 40, 0.12);
+  transform: translateX(-50%) rotate(var(--tape-tilt, -3deg));
+  opacity: 0.95;
+}
+
+.note-container::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  background: linear-gradient(135deg, rgba(138, 112, 32, 0.18), rgba(255, 255, 255, 0.45));
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  box-shadow: -3px -3px 6px rgba(126, 103, 35, 0.08);
 }
 
 .note-container:hover {
-  color: var(--background);
-  background: var(--foreground);
-}
-
-[data-theme="light"] .note-container:hover {
-  background: var(--text-secondary);
+  transform: translateY(-6px) rotate(0deg) scale(1.01);
+  border-color: rgba(122, 107, 45, 0.3);
+  box-shadow:
+    0 22px 34px rgba(77, 61, 18, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.52);
 }
 
 .note-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  color: inherit;
+  position: relative;
+  z-index: 1;
+}
+
+.note-eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.12rem 0 0.28rem;
+  color: rgba(84, 66, 20, 0.78);
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-bottom: 2px dashed rgba(118, 96, 30, 0.32);
+}
+
+.note-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 2.6vw, 2rem);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: rgba(54, 42, 10, 0.96);
+  text-wrap: balance;
+  max-width: 13ch;
+}
+
+.note-description {
+  color: rgba(76, 61, 18, 0.84);
+  font-size: 0.98rem;
+  line-height: 1.75;
+  max-width: 28ch;
+}
+
+.note-topics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 0.35rem;
+  position: relative;
+  z-index: 1;
+}
+
+.note-topics .topic-tag {
+  background: rgba(255, 251, 233, 0.7);
+  color: rgba(84, 66, 20, 0.88);
+  border-color: rgba(122, 107, 45, 0.16);
+  backdrop-filter: blur(2px);
+}
+
+.note-topics .topic-tag:hover {
+  background: rgba(255, 247, 210, 0.92);
+  color: rgba(54, 42, 10, 0.96);
+}
+
+@media (max-width: 560px) {
+  .note-container {
+    min-height: 220px;
+    padding: 1.7rem 1.1rem 1.2rem;
+  }
+
+  .note-title {
+    font-size: 1.5rem;
+    max-width: none;
+  }
+
+  .note-description {
+    max-width: none;
+  }
 }

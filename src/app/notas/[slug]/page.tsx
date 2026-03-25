@@ -25,28 +25,13 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
   const slug = (await params).slug;
   const components = {
     DottedShadowText,
-    ul: (props: Record<string, unknown>) => (
-      <ul
-        style={{
-          listStyle: "auto",
-        }}
-        {...props}
-      />
-    ),
-    ol: (props: Record<string, unknown>) => (
-      <ol
-        style={{
-          listStyle: "auto",
-        }}
-        {...props}
-      />
-    ),
-    li: (props: Record<string, unknown>) => <li style={{}} {...props} />,
+    ul: (props: Record<string, unknown>) => <ul style={{ listStyle: "auto" }} {...props} />,
+    ol: (props: Record<string, unknown>) => <ol style={{ listStyle: "auto" }} {...props} />,
+    li: (props: Record<string, unknown>) => <li {...props} />,
     a: (props: Record<string, unknown>) => (
       <a
         style={{
-          fontWeight: "500",
-          fontStyle: "italic",
+          fontWeight: "600",
           textDecorationStyle: "dotted",
           textDecoration: "underline",
           textUnderlineOffset: "0.3rem",
@@ -55,8 +40,6 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
       />
     ),
   };
-
-  //const { default: Note } = await import(`@/app/content/${slug}.mdx`);
 
   const filePath = path.join(process.cwd(), "/src/app/content", `${slug}.mdx`);
 
@@ -69,26 +52,29 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
   const metadata = frontmatter as Frontmatter;
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+    <div style={{ display: "flex", flexDirection: "column", gap: "26px", maxWidth: "720px" }}>
       <BackButton text="voltar" />
 
       <div
         style={{
           display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
+          flexDirection: "column",
+          gap: "0.85rem",
+          paddingBottom: "0.4rem",
+          borderBottom: "1px solid var(--border)",
         }}
       >
-        <DottedShadowText text={metadata.title} />
-        <span style={{ fontSize: "var(--text-sm)", opacity: 0.5 }}>
-          {parseDatePtBr(metadata?.updatedAt)}
+        <span style={{ fontSize: "var(--text-sm)", color: "var(--text-tertiary)", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+          Atualizado em {parseDatePtBr(metadata?.updatedAt)}
         </span>
+        <DottedShadowText text={metadata.title} size="clamp(2.5rem, 5vw, 4.5rem)" />
       </div>
+
       <Suspense fallback={<>Carregando...</>}>
         <MDXRemote source={content} components={components} />
       </Suspense>
 
-      <div style={{ display: "flex", gap: "5px" }}>
+      <div style={{ display: "flex", gap: "0.45rem", flexWrap: "wrap", paddingTop: "0.25rem" }}>
         {metadata.topics?.map((topic: string) => (
           <TopicTag key={topic} text={topic} />
         ))}
