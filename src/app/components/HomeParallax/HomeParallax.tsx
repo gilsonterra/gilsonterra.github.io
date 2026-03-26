@@ -21,7 +21,13 @@ const HomeParallax: React.FC<HomeParallaxProps> = ({ children }) => {
     };
 
     const setSafeHeight = () => {
-      root.style.setProperty("--safe-height", `${window.innerHeight}px`);
+      const headerHeightValue = getComputedStyle(root)
+        .getPropertyValue("--header-height")
+        .trim();
+      const headerHeight = Number.parseFloat(headerHeightValue || "0");
+      const safeHeight = Math.max(window.innerHeight - headerHeight, 0);
+
+      root.style.setProperty("--safe-height", safeHeight + "px");
     };
 
     const animateParallax = () => {

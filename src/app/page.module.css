@@ -10,7 +10,7 @@
 }
 
 :global(:root) {
-  --safe-height: 100vh;
+  --safe-height: calc(100vh - var(--header-height));
   --pointer-x: 0px;
   --pointer-y: 0px;
 }

@@ -169,20 +169,20 @@ button {
 }
 
 .site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  z-index: 50;
+  min-height: var(--header-height);
+  z-index: 10;
 }
 
 .site-header__inner {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
   width: 100%;
-  padding: var(--header-offset) var(--global-padding) 0;
+  min-height: var(--header-height);
+  padding: 0 var(--global-padding);
 }
 
 .site-header__brand {
@@ -198,7 +198,7 @@ button {
   display: flex;
   flex: 1;
   justify-content: flex-end;
-  padding-top: 0.35rem;
+  align-items: center;
 }
 
 .site-header__nav .menu {
@@ -231,7 +231,7 @@ button {
   grid-template-rows: 1fr 60px;
   width: 100%;
   min-height: 100vh;
-  padding: calc(var(--header-offset) + var(--header-height)) var(--global-padding) 0;
+  padding: 0 var(--global-padding) 0;
 }
 
 .layout main {

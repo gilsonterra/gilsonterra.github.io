@@ -1,37 +1,41 @@
 ---
 title: "Dicas para otimização de sites"
-description: "Dicas da entrevista de Sérgio Lopes (Alura)"
+description: "Checklist rápido com práticas úteis para melhorar performance web."
 updatedAt: "2025-02-06"
 startedAt: "2025-02-06"
 type: "note"
 topics: ["dev", "front", "performance"]
 ---
 
-por Sérgio Lopes
+# Dicas para otimização de sites
 
-1.  Instale o Gzip
-2.  Otimize as imagens
-3.  De preferência ao \*.svg
-4.  Use sprites ou symbols no svg
-5.  Seu HTML não pode ter mais de 14kb (inline)
-6.  Diminua os request
-7.  Minificação do CSS, JS e do HTML
-8.  O browser faz até 6 request por vez
-9.  Request paralelos
-10.  Cache Control
-11.  In line resource
-12.  [webpagetest.org](http://webpagetest.org)
-13.  Critical Paths
-14.  Atrase execução de JS não importante com setTimeOut
-15.  LazyLoad de imagem e vídeos
-16.  Above The fold
-17.  Técnica _throttle_
-18.  Depois de usar um listener pode depois retirar para não ficar executando
-19.  Trazer o CSS inline do topo
-20.  Http 2 + server push
-21.  Resources Hints
-22.  Link preconnect
-23.  Link dns-prefetch
-24.  Link prefetch
-25.  Link preload
-26.  [performancebudget.io](http://performancebudget.io)
+Resumo de práticas mencionadas por Sérgio Lopes em entrevista sobre performance web.
+
+## Checklist
+
+1. Ative compressão com Gzip ou Brotli.
+2. Otimize imagens antes de publicar.
+3. Prefira SVG quando fizer sentido.
+4. Use sprites ou `symbol` em SVG para reaproveitamento.
+5. Mantenha o HTML inicial o mais enxuto possível.
+6. Reduza o número de requisições.
+7. Minifique CSS, JavaScript e HTML.
+8. Lembre que o navegador paraleliza um número limitado de requests por origem.
+9. Aproveite carregamento paralelo quando possível.
+10. Configure `Cache-Control` corretamente.
+11. Avalie recursos inline com critério.
+12. Use [WebPageTest](http://webpagetest.org) para medir.
+13. Revise o caminho crítico de renderização.
+14. Atrase JavaScript não essencial.
+15. Use lazy load para imagens e vídeos.
+16. Priorize conteúdo *above the fold*.
+17. Aplique técnicas de *throttle* quando necessário.
+18. Remova listeners quando não forem mais necessários.
+19. Considere CSS crítico inline no topo.
+20. Avalie os ganhos reais de HTTP/2 e estratégias modernas de entrega.
+21. Use *resource hints* com parcimônia.
+22. `preconnect`
+23. `dns-prefetch`
+24. `prefetch`
+25. `preload`
+26. Defina um orçamento de performance com [performancebudget.io](http://performancebudget.io).
