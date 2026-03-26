@@ -22,7 +22,7 @@ const Title: React.FC = () => {
         letterSpacing: "-0.075em",
       }}
     >
-      <Link href="/" style={{ display: "inline-flex", alignItems: "baseline" }}>
+      <Link href="/" scroll style={{ display: "inline-flex", alignItems: "baseline" }}>
         <span
           className={gloriaHallelujah.className}
           style={{

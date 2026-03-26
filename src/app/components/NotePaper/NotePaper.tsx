@@ -6,7 +6,6 @@ type NotePaperProps = {
   title: string;
   updatedAt: string;
   topics?: string[];
-  transitionName?: string;
   children: React.ReactNode;
 };
 
@@ -20,16 +19,12 @@ const NotePaper: React.FC<NotePaperProps> = ({
   title,
   updatedAt,
   topics = [],
-  transitionName,
   children,
 }) => {
   const noteTone = getNoteTone(topics.length);
 
   return (
-    <article
-      className={"note-paper note-paper--" + noteTone}
-      style={transitionName ? { viewTransitionName: transitionName } : undefined}
-    >
+    <article className={"note-paper note-paper--" + noteTone}>
       <header className="note-paper__header">
         <span className="note-paper__eyebrow">Atualizado em {updatedAt}</span>
         <NoteTitle className="note-title--page note-paper__title">{title}</NoteTitle>

@@ -242,16 +242,3 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  ::view-transition-group(active-note-paper) {
-    animation-duration: 560ms;
-    animation-timing-function: cubic-bezier(0.22, 0.9, 0.24, 1);
-  }
-
-  ::view-transition-old(active-note-paper),
-  ::view-transition-new(active-note-paper) {
-    animation-duration: 560ms;
-    animation-timing-function: cubic-bezier(0.22, 0.9, 0.24, 1);
-    transform-origin: center top;
-  }
-}

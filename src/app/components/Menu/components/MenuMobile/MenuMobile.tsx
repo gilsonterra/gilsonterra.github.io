@@ -36,7 +36,7 @@ const MenuMobile: React.FC<MenuItems> = ({ items, activePath = "" }) => {
         <ul className="menu-mobile__panel">
           {items?.map((item) => (
             <li key={`menu-${item.href}`} className={isActive(item.href) ? "is-active" : ""}>
-              <Link href={item.href} onClick={() => setOpen(false)}>
+              <Link href={item.href} scroll onClick={() => setOpen(false)}>
                 {item.label}
               </Link>
             </li>

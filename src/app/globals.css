@@ -228,9 +228,9 @@ button {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-rows: 1fr 60px;
+  grid-template-rows: minmax(0, 1fr) auto;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--header-height));
   padding: 0 var(--global-padding) 0;
 }
 

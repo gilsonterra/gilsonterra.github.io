@@ -12,7 +12,7 @@ const Menu: React.FC = () => {
 
   return (
     <nav className="menu">
-      <MenuMobile items={DATA.items} activePath={pathname} />
+      <MenuMobile key={pathname} items={DATA.items} activePath={pathname} />
       <MenuDesktop items={DATA.items} activePath={pathname} />
     </nav>
   );

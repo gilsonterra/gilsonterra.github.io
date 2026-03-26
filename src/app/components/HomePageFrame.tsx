@@ -8,11 +8,37 @@ type HomePageFrameProps = {
   children: React.ReactNode;
 };
 
+const STATIC_FULL_BLEED_PATHS = new Set(["/"]);
+const STATIC_CONTENT_PATHS = new Set([
+  "/notas",
+  "/sobre",
+  "/playground",
+  "/optimistic-ui",
+  "/performance-percebida",
+  "/error-boundary",
+  "/tanstack-query",
+]);
+
+const isSingleNestedRoute = (pathname: string, basePath: string) => {
+  if (!pathname.startsWith(basePath + "/")) {
+    return false;
+  }
+
+  const rest = pathname.slice(basePath.length + 1);
+  return rest.length > 0 && !rest.includes("/");
+};
+
+const isKnownDynamicRoute = (pathname: string) => {
+  return isSingleNestedRoute(pathname, "/notas") || isSingleNestedRoute(pathname, "/categoria");
+};
+
 const HomePageFrame: React.FC<HomePageFrameProps> = ({ children }) => {
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const isHome = STATIC_FULL_BLEED_PATHS.has(pathname);
+  const isKnownRoute = STATIC_CONTENT_PATHS.has(pathname) || isKnownDynamicRoute(pathname);
+  const isNotFound = !isHome && !isKnownRoute;
 
-  if (isHome) {
+  if (isHome || isNotFound) {
     return <>{children}</>;
   }
 

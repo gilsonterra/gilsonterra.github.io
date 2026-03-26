@@ -1,18 +1,22 @@
-import BrokenNeonText from "./components/BrokenNeonText/BrokenNeonText";
+import HomeParallax from "./components/HomeParallax/HomeParallax";
+import TypewriterTitle from "./components/TypewriterTitle/TypewriterTitle";
+import styles from "./page.module.css";
 
-const PageNotFound: React.FC = () => {
+export default function Home() {
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "50px",
-      }}
-    >
-      <BrokenNeonText />
-    </div>
+    <HomeParallax>
+      <main className={styles.hero}>
+        <div style={{ padding: '20px',display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'translateY(50px)' }}>
+          <TypewriterTitle text="Ops! Página não encontrada" className={styles.simpleTitle} />
+        </div>
+        <section className={styles.portrait} aria-label="Retrato principal">
+          <img
+            className={styles.portraitImage}
+            src="/images/profile-site/avatar_sad_without_bg.png"
+            alt="Retrato de Gilson Terra"
+          />
+        </section>
+      </main>
+    </HomeParallax>
   );
-};
-
-export default PageNotFound;
+}

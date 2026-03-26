@@ -11,8 +11,6 @@ import { notFound } from "next/navigation";
 import path from "path";
 import { Suspense } from "react";
 
-const NOTE_VIEW_TRANSITION_NAME = "active-note-paper";
-
 type PostProps = {
   params: Promise<{ slug: string }>;
 };
@@ -62,7 +60,6 @@ const NotePage: React.FC<PostProps> = async ({ params }) => {
         title={metadata.title}
         updatedAt={parseDatePtBr(metadata?.updatedAt)}
         topics={metadata.topics}
-        transitionName={NOTE_VIEW_TRANSITION_NAME}
       >
         <Suspense fallback={<>Carregando...</>}>
           <MDXRemote source={content} components={components} />

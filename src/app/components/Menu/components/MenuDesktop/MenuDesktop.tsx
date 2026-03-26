@@ -11,7 +11,7 @@ const MenuDesktop: React.FC<MenuItems> = ({ items, activePath = "" }) => {
       <ul>
         {items?.map((item) => (
           <li key={`menu-${item.href}`} className={isActive(item.href) ? "is-active" : ""}>
-            <Link href={item.href} style={{ padding: "5px" }}>
+            <Link href={item.href} scroll style={{ padding: "5px" }}>
               {item.label}
             </Link>
           </li>
