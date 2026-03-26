@@ -16,15 +16,15 @@ const StarButton = styled.button<{ $active?: boolean }>`
   @keyframes pulseGlow {
     0% {
       transform: scale(1);
-      filter: drop-shadow(0 0 0px yellow);
+      filter: drop-shadow(0 0 0px #f59e0b);
     }
     50% {
       transform: scale(1.2);
-      filter: drop-shadow(0 0 10px yellow);
+      filter: drop-shadow(0 0 12px #f59e0b);
     }
     100% {
       transform: scale(1);
-      filter: drop-shadow(0 0 0px yellow);
+      filter: drop-shadow(0 0 0px #f59e0b);
     }
   }
 `;
@@ -52,8 +52,8 @@ const OptimisticUiSimulator: React.FC<OptimisticUiSimulatorProps> = ({
   const [progress, setProgress] = useState(0);
   const [messageError, setMessageError] = useState("");
 
-  const color = active ? "yellow" : "white";
-  const colorOptimistic = activeOptimistic ? "yellow" : "white";
+  const color = active ? "#f59e0b" : "#475569";
+  const colorOptimistic = activeOptimistic ? "#f59e0b" : "#475569";
 
   const simulateRequest = async () => {
     setLoading(true);
@@ -84,36 +84,59 @@ const OptimisticUiSimulator: React.FC<OptimisticUiSimulatorProps> = ({
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
       <div
         style={{
-          fontSize: "var(--text-xl)",
+          fontSize: "clamp(1rem, 4vw, var(--text-xl))",
           display: "flex",
-          alignItems: "center",
-          gap: "50px",
-          position: "relative",
+          width: "100%",
         }}
       >
-        <StarButton onClick={handleClick} $active={optimistic ? activeOptimistic : active}>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            {showLoading ? (
-              loading ? (
-                <Spinner size={45} />
+        <StarButton
+          onClick={handleClick}
+          $active={optimistic ? activeOptimistic : active}
+          style={{
+            width: "100%",
+            maxWidth: "100%",
+            background: "transparent",
+            border: "none",
+            color: "inherit",
+            padding: 0,
+            textAlign: "left",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.75rem",
+              width: "100%",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                flexWrap: "wrap",
+                width: "100%",
+              }}
+            >
+              {showLoading ? (
+                loading ? (
+                  <Spinner size={45} />
+                ) : (
+                  <StarIcon color={color} height={50} />
+                )
               ) : (
-                <StarIcon color={color} height={50} />
-              )
-            ) : (
-              <StarIcon
-                color={optimistic ? colorOptimistic : color}
-                height={50}
-              />
-            )}
-            {text}
-            {progress > 0 && (
-              <div style={{ display: "flex" }}>
-                <ProgressBar width={progress} time={`${TIMEOUT}ms`} />
-              </div>
-            )}
+                <StarIcon
+                  color={optimistic ? colorOptimistic : color}
+                  height={50}
+                />
+              )}
+              <span style={{ overflowWrap: "anywhere" }}>{text}</span>
+            </div>
+            {progress > 0 && <ProgressBar width={progress} time={`${timeout}ms`} />}
             {messageError && <div style={{ color: "red" }}>{messageError}</div>}
           </div>
         </StarButton>

@@ -13,11 +13,6 @@ const Container = styled.div`
   border-radius: 999px;
   overflow: hidden;
   width: 100%;
-  left: 50%;
-  max-width: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
 `;
@@ -43,7 +38,7 @@ type ProgressBarProps = {
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ width, time = "1s" }) => {
   return (
-    <div style={{ position: "relative", width: "400px" }}>
+    <div style={{ width: "min(100%, 400px)" }}>
       <Container>
         <Bar>
           <Progress width={width} time={time} />
